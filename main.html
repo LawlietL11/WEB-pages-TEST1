@@ -3,55 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网 - 首页</title>
+    <title>灰狐网 - 资源</title>
     <link rel="stylesheet" href="assets/CSS/style.css">
     <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/jpeg">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
             background-size: cover;
             background-position: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        .content {
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a, .dropdown-btn {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-left: 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+        }
+
+        .dropdown-container.show {
+            max-height: 300px; /* Adjust as necessary */
+        }
+
+        .main {
+            flex: 1;
             padding: 20px;
-            margin-top: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            overflow-y: auto;
         }
 
-        .content p {
-            margin: 0;
-            font-size: 3em;
-            line-height: 1.5;
-        }
-
-        .link {
-            margin-bottom: 20px;
-            margin-top: auto;
-        }
-
-        .link a {
-            color: white;
-            text-decoration: underline;
-            font-size: 1.5em;
+        .edit-blog textarea {
+            width: 100%;
+            height: 200px;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <p>天地渊渊 谁曾可探</p>
-        <p>苍宇茫茫 律理谁创</p>
+    <div class="header">
+        <h1>灰狐网</h1>
     </div>
-    <div class="link">
-        <a href="main.html">进入网站</a>
+    <div class="container">
+        <div class="sidebar">
+            <a href="index.html">Home</a>
+            <button class="dropdown-btn">资源区
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">通信工程</a>
+                <a href="#">电子数码</a>
+                <a href="#">AI知识</a>
+                <a href="#">网络知识</a>
+                <a href="#">历史</a>
+                <a href="#">影视</a>
+                <a href="#">小说</a>
+            </div>
+            <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系</a>
+        </div>
+        <div class="main">
+            <h2>Resources</h2>
+            <p>This is the resources display area.</p>
+
+            <div class="edit-blog">
+                <h3>在线编辑博客</h3>
+                <textarea placeholder="Write your blog here..."></textarea>
+                <button>Submit</button>
+            </div>
+
+            <div class="posts">
+                <h3>博客文章</h3>
+                <ul id="posts-list">
+                    <!-- Posts will be loaded here by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="external-link">
+                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰虎网考研</a>
+            </div>
+        </div>
     </div>
+    <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownBtn = document.querySelector('.dropdown-btn');
+            const dropdownContainer = document.querySelector('.dropdown-container');
+
+            dropdownBtn.addEventListener('click', function () {
+                dropdownContainer.classList.toggle('show');
+            });
+
+            // Example script to load posts from the _posts folder (mockup)
+            const postsList = document.getElementById('posts-list');
+            const posts = ['Post 1', 'Post 2', 'Post 3'];
+
+            posts.forEach(post => {
+                const li = document.createElement('li');
+                li.textContent = post;
+                postsList.appendChild(li);
+            });
+        });
+    </script>
 </body>
 </html>
