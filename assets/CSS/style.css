@@ -1,13 +1,7 @@
-
-
 /* CSS 样式 */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg') no-repeat center center fixed;
+  background: url('/your-repo/assets/images/76473450_p0_master1200.webp') no-repeat center center fixed;
   background-size: cover;
-  color: #ffffff;
 }
 
 .container {
@@ -54,9 +48,4 @@ body {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-}
-
-body {
-  background: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg') no-repeat center center fixed;
-  background-size: cover;
 }
