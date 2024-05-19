@@ -2,8 +2,11 @@
 title: Welcome to Huihu blog
 ---
 
-<link rel="stylesheet" href="assets/css/style.css">
+---
+layout: default
+---
 
+<link rel="stylesheet" href="/your-repo/assets/css/style.css">
 
 <div class="container">
   <div class="sidebar">
