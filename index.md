@@ -4,9 +4,6 @@ title: Welcome to Huihu blog
 
 <link rel="stylesheet" href="assets/css/style.css">
 
----
-layout: default
----
 
 <div class="container">
   <div class="sidebar">
