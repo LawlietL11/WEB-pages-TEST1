@@ -3,37 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网 - 首页</title>
-    <link rel="stylesheet" href="assets/CSS/style.css">
-    <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/jpeg">
+    <title>星空网页</title>
+    <link rel="stylesheet" href="/your-repo/assets/css/style.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            height: 100vh;
+        /* 新增的 CSS 样式 */
+        .overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%; /* 占据页面宽度的一半 */
+            background: rgba(0, 0, 0, 0.7); /* 透明背景 */
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            opacity: 0; /* 初始透明度为0 */
+            transition: opacity 1s ease-in-out; /* 添加渐变动画 */
+        }
+
+        /* 为了使内容水平垂直居中 */
+        .overlay p {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .link {
-            margin-bottom: 20px;
-        }
-
-        .link a {
-            color: white;
-            text-decoration: underline;
-            font-size: 1.5em;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <div class="link">
-        <a href="main.html">进入网站</a>
+    <!-- 添加的内容 -->
+    <div class="overlay" id="overlay">
+        <p>天地渊渊<br>谁曾可探</p>
     </div>
+    
+    <div class="container">
+        <!-- 原有的内容 -->
+        <div class="sidebar">
+            <h2>导航栏</h2>
+            <ul>
+                <li><a href="#section1">资源1</a></li>
+                <li><a href="#section2">资源2</a></li>
+                <li><a href="#section3">资源3</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="topbar">
+                <h1>用户工具</h1>
+                <p>这里可以放一些用户工具，比如搜索框、设置按钮等。</p>
+            </div>
+            
+            <div class="content">
+                <h2 id="section1">资源展示1</h2>
+                <p>这里是资源1的内容。</p>
+                <h2 id="section2">资源展示2</h2>
+                <p>这里是资源2的内容。</p>
+                <h2 id="section3">资源展示3</h2>
+                <p>这里是资源3的内容。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增的 JavaScript 代码，用于页面加载时显示动画 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 获取 overlay 元素
+            var overlay = document.getElementById('overlay');
+            // 设置定时器，在页面加载后一秒显示 overlay 元素
+            setTimeout(function(){
+                overlay.style.opacity = '1';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
