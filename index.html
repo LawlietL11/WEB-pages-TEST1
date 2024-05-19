@@ -3,88 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            flex: 1;
-        }
-
-        .sidebar {
-            width: 200px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-
-        .main {
-            flex: 1;
-            padding: 15px;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .navbar {
-            margin-bottom: 20px;
-        }
-
-        .navbar a {
-            display: block;
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .edit-blog {
-            margin-top: 20px;
-        }
-
-        .edit-blog textarea {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 10px;
-        }
-
-        .posts {
-            margin-top: 20px;
-        }
-
-        .external-link {
-            margin-top: 20px;
-        }
-
-        .external-link a {
-            color: blue;
-            text-decoration: underline;
-        }
-    </style>
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 <body>
     <div class="header">
-        <h1>灰狐网</h1>
+        <h1>{{ site.title }}</h1>
     </div>
     <div class="container">
         <div class="sidebar">
@@ -107,7 +31,12 @@
             <div class="posts">
                 <h3>博客文章</h3>
                 <ul id="posts-list">
-                    <!-- Posts will be loaded here by JavaScript -->
+                    {% for post in site.posts %}
+                        <li>
+                            <a href="{{ post.url }}">{{ post.title }}</a>
+                            <p>{{ post.excerpt }}</p>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -116,22 +45,5 @@
             </div>
         </div>
     </div>
-    <script>
-        // Example script to load posts from the _posts folder (mockup)
-        document.addEventListener('DOMContentLoaded', function () {
-            const postsList = document.getElementById('posts-list');
-            const posts = [
-                'Post 1',
-                'Post 2',
-                'Post 3'
-            ];
-
-            posts.forEach(post => {
-                const li = document.createElement('li');
-                li.textContent = post;
-                postsList.appendChild(li);
-            });
-        });
-    </script>
 </body>
 </html>
