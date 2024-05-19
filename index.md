@@ -6,7 +6,7 @@ title: Welcome to Huihu blog
 layout: default
 ---
 
-<link rel="stylesheet" href="/your-repo/assets/css/style.css">
+<link rel="stylesheet" href="/web-pages-test1/assets/css/style.css">
 
 <div class="container">
   <div class="sidebar">
