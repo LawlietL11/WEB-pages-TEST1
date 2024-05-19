@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title> <!-- 修改网页标题为统一的 "灰狐网" -->
+    <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        /* 添加自定义样式 */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .overlay {
+            color: white;
+            font-size: 2em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
         .bottom-link {
-            position: fixed;
-            bottom: 20px;
-            width: 100%;
+            margin-top: 20px;
             text-align: center;
-            font-size: 1.5em;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         .bottom-link a {
-            color: #ffffff;
+            color: white;
             text-decoration: none;
             background: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
             border-radius: 5px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out 1s;
         }
     </style>
 </head>
@@ -33,20 +56,14 @@
     <div class="bottom-link" id="bottom-link">
         <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
-
-    <div class="bottom-link" id="site-link">
-        <a href="main.html">进入网站</a> <!-- 添加一个链接到网站入口 -->
-    </div>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
-            var siteLink = document.getElementById('site-link');
             setTimeout(function(){
                 overlay.style.opacity = '1';
                 bottomLink.style.opacity = '1';
-                siteLink.style.opacity = '1';
             }, 1000);
         });
     </script>
