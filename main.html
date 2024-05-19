@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网 - 资源</title>
     <link rel="stylesheet" href="assets/CSS/style.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .sidebar a, .dropdown-btn {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-left: 10px;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            overflow-y: auto;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -12,11 +61,20 @@
     </div>
     <div class="container">
         <div class="sidebar">
-            <div class="navbar">
-                <a href="index.html">Home</a>
-                <a href="#">Resources</a>
-                <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <button class="dropdown-btn">资源区
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">通信工程</a>
+                <a href="#">电子数码</a>
+                <a href="#">AI知识</a>
+                <a href="#">网络知识</a>
+                <a href="#">历史</a>
+                <a href="#">影视</a>
+                <a href="#">小说</a>
             </div>
+            <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系</a>
         </div>
         <div class="main">
             <h2>Resources</h2>
@@ -41,14 +99,18 @@
         </div>
     </div>
     <script>
-        // Example script to load posts from the _posts folder (mockup)
+        // Dropdown functionality
         document.addEventListener('DOMContentLoaded', function () {
+            const dropdownBtn = document.querySelector('.dropdown-btn');
+            const dropdownContainer = document.querySelector('.dropdown-container');
+
+            dropdownBtn.addEventListener('click', function () {
+                dropdownContainer.style.display = dropdownContainer.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Example script to load posts from the _posts folder (mockup)
             const postsList = document.getElementById('posts-list');
-            const posts = [
-                'Post 1',
-                'Post 2',
-                'Post 3'
-            ];
+            const posts = ['Post 1', 'Post 2', 'Post 3'];
 
             posts.forEach(post => {
                 const li = document.createElement('li');
