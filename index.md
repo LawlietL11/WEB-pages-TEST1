@@ -2,6 +2,8 @@
 title: Welcome to Huihu blog
 ---
 
+<link rel="stylesheet" href="assets/css/style.css">
+
 ---
 layout: default
 ---
