@@ -4,71 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/CSS/style.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100vh;
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .content {
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .content p {
-            margin: 0;
-            font-size: 2em;
-            line-height: 1.5;
-        }
-
-        .link {
-            margin-top: 20px;
-        }
-
-        .link a {
-            color: white;
-            text-decoration: underline;
-            font-size: 1.5em;
-        }
-
         .bottom-link {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
+            margin-top: 20px;
             text-align: center;
-            font-size: 1.5em;
         }
 
         .bottom-link a {
             color: white;
-            text-decoration: underline;
-            font-size: 1.5em;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <p>天地渊渊 谁曾可探</p>
+    <div class="overlay" id="overlay">
+        天地渊渊 谁曾可探
     </div>
-    <div class="bottom-link">
+
+    <div class="bottom-link" id="bottom-link">
         <a href="main.html">前往探索</a>
     </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById('overlay');
+            var bottomLink = document.getElementById('bottom-link');
+            setTimeout(function(){
+                overlay.style.opacity = '1';
+                bottomLink.style.opacity = '1';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
