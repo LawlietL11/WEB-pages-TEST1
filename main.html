@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/CSS/style.css">
     <style>
         /* 添加自定义样式 */
+
         body {
             margin: 0;
             padding: 0;
@@ -52,6 +53,38 @@
             color: blue;
             text-decoration: underline;
         }
+
+        /* 下拉菜单样式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -62,7 +95,20 @@
         <div class="sidebar">
             <div class="navbar">
                 <a href="index.html">Home</a>
-                <a href="#">Resources</a>
+                <div class="dropdown">
+                    <span>Resources</span>
+                    <div class="dropdown-content">
+                        <a href="#">通信工程</a>
+                        <a href="#">数码电子</a>
+                        <a href="#">AI知识</a>
+                        <a href="#">历史</a>
+                        <a href="#">影视</a>
+                        <a href="#">小说</a>
+                        <a href="#">网站资源</a>
+                        <a href="#">C-个人随笔</a>
+                    </div>
+                </div>
+                
                 <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">Contact</a> <!-- 修改 "联系" 链接 -->
             </div>
         </div>
