@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网 - 资源</title>
     <link rel="stylesheet" href="assets/CSS/style.css">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -13,38 +13,9 @@
             background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
             background-size: cover;
             background-position: center;
-        }
-
-        .container {
             display: flex;
+            flex-direction: column;
             height: 100vh;
-        }
-
-        .sidebar {
-            width: 200px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            box-sizing: border-box;
-        }
-
-        .sidebar a, .dropdown-btn {
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-container {
-            display: none;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding-left: 10px;
-        }
-
-        .main {
-            flex: 1;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            overflow-y: auto;
         }
 
         .header {
@@ -52,6 +23,50 @@
             color: white;
             padding: 10px;
             text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a, .dropdown-btn {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-left: 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+        }
+
+        .dropdown-container.show {
+            display: block;
+            max-height: 300px; /* Adjust as necessary */
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -105,7 +120,7 @@
             const dropdownContainer = document.querySelector('.dropdown-container');
 
             dropdownBtn.addEventListener('click', function () {
-                dropdownContainer.style.display = dropdownContainer.style.display === 'block' ? 'none' : 'block';
+                dropdownContainer.classList.toggle('show');
             });
 
             // Example script to load posts from the _posts folder (mockup)
