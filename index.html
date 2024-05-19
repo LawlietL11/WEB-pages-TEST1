@@ -3,21 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title>
-    <link rel="stylesheet" href="assets/CSS/style.css">
+    <title>灰狐网</title> <!-- 修改网页标题为统一的 "灰狐网" -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .bottom-link {
-            margin-top: 20px;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            background: rgba(0, 0, 0, 0.0);
+            padding: 20px;
             text-align: center;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            font-size: 2em;
+        }
+
+        .bottom-link {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5em;
         }
 
         .bottom-link a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            background-color: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
             border-radius: 5px;
-            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 1s ease-in-out 1s;
         }
     </style>
 </head>
@@ -27,7 +54,7 @@
     </div>
 
     <div class="bottom-link" id="bottom-link">
-        <a href="main.html">前往探索</a>
+        <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
     
     <script>
