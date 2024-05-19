@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
+        .header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .main {
+            flex: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>User Tools</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="navbar">
+                <a href="#">Home</a>
+                <a href="#">Resources</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="main">
+            <h2>Resources</h2>
+            <p>This is the resources display area.</p>
+        </div>
+    </div>
+</body>
+</html>
