@@ -1,7 +1,11 @@
 /* CSS 样式 */
 body {
-  background: url('/your-repo/assets/images/76473450_p0_master1200.webp') no-repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('/web-pages-test1/assets/images/76473450_p0_master1200.webp') no-repeat center center fixed;
   background-size: cover;
+  color: #ffffff;
 }
 
 .container {
