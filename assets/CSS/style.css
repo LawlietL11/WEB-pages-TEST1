@@ -74,43 +74,46 @@ body {
     text-decoration: underline;
 }
 
+/* CSS 样式 */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+    background: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
+    color: #ffffff;
 }
 
-.content {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* 占据页面宽度的一半 */
+    background: rgba(0, 0, 0, 0.7); /* 透明背景 */
     padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0; /* 初始透明度为0 */
+    transition: opacity 1s ease-in-out; /* 添加渐变动画 */
 }
 
-.content p {
+/* 为了使内容水平垂直居中 */
+.overlay p {
     margin: 0;
-    font-size: 2em;
     line-height: 1.5;
 }
 
-.link {
-    margin-bottom: 20px;
+/* 新增的超链接样式 */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.link a {
-    color: white;
+a:hover {
     text-decoration: underline;
-    font-size: 1.2em;
 }
