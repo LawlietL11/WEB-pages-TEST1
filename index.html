@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8"> <!-- 定义文档的字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以适应不同设备的宽度 -->
+    <title>灰狐网</title> <!-- 网页标题 -->
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- 引入外部CSS文件 -->
     <style>
         /* 添加自定义样式 */
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            margin: 0; /* 去除默认的页面边距 */
+            padding: 0; /* 去除默认的页面内边距 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); /* 背景图片 */
+            background-size: cover; /* 背景图片覆盖整个背景 */
+            background-position: center; /* 背景图片居中 */
+            display: flex; /* 使用Flexbox布局 */
+            flex-direction: column; /* Flex方向为列 */
+            align-items: center; /* 内容水平居中 */
+            justify-content: center; /* 内容垂直居中 */
+            height: 100vh; /* 高度为视口高度 */
         }
 
         .overlay {
-            color: white;
-            font-size: 2em;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            color: white; /* 文字颜色白色 */
+            font-size: 2em; /* 文字大小 */
+            background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            padding: 20px; /* 内边距 */
+            border-radius: 10px; /* 边角圆滑 */
+            opacity: 0; /* 初始透明 */
+            transition: opacity 1s ease-in-out; /* 透明度变化动画 */
         }
 
         .bottom-link {
-            margin-top: 20px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            margin-top: 20px; /* 外边距 */
+            text-align: center; /* 文本居中 */
+            opacity: 0; /* 初始透明 */
+            transition: opacity 1s ease-in-out; /* 透明度变化动画 */
         }
 
         .bottom-link a {
-            color: white;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 5px;
+            color: white; /* 链接文字颜色 */
+            text-decoration: none; /* 去除链接下划线 */
+            background: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+            padding: 10px 20px; /* 内边距 */
+            border-radius: 5px; /* 边角圆滑 */
         }
 
         /* 添加时钟样式 */
         #clock {
-            font-size: 2em;
-            color: white;
-            margin-top: 20px;
+            font-size: 2em; /* 字体大小 */
+            color: white; /* 字体颜色 */
+            margin-top: 20px; /* 上外边距 */
             opacity: 0; /* 初始不可见 */
             animation: fadeIn 4s ease-in-out forwards; /* 使用动画淡入 */
         }
@@ -68,43 +68,43 @@
 </head>
 <body>
     <div class="overlay" id="overlay">
-        天地渊渊 谁曾可探
+        天地渊渊 谁曾可探 <!-- 覆盖层文字 -->
     </div>
 
     <div class="bottom-link" id="bottom-link">
-        <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
+        <a href="main.html">前往探索</a> <!-- 链接按钮，文本为“前往探索” -->
     </div>
 
     <!-- 添加时钟容器 -->
     <div id="clock"></div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() { <!-- DOM内容加载完成后执行 -->
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
             setTimeout(function(){
-                overlay.style.opacity = '1';
-                bottomLink.style.opacity = '1';
+                overlay.style.opacity = '1'; <!-- 1秒后，覆盖层文字淡入 -->
+                bottomLink.style.opacity = '1'; <!-- 1秒后，链接按钮淡入 -->
             }, 1000);
 
             // 时钟显示功能
             function updateClock() {
-                var now = new Date();
-                var hours = now.getHours();
-                var minutes = now.getMinutes();
-                var seconds = now.getSeconds();
+                var now = new Date(); <!-- 获取当前时间 -->
+                var hours = now.getHours(); <!-- 获取当前小时 -->
+                var minutes = now.getMinutes(); <!-- 获取当前分钟 -->
+                var seconds = now.getSeconds(); <!-- 获取当前秒钟 -->
 
                 // 添加前导零以确保两位数
-                hours = hours < 10 ? '0' + hours : hours;
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
+                hours = hours < 10 ? '0' + hours : hours; <!-- 小时补零 -->
+                minutes = minutes < 10 ? '0' + minutes : minutes; <!-- 分钟补零 -->
+                seconds = seconds < 10 ? '0' + seconds : seconds; <!-- 秒钟补零 -->
 
-                var clockDiv = document.getElementById('clock');
-                clockDiv.textContent = hours + ':' + minutes + ':' + seconds;
+                var clockDiv = document.getElementById('clock'); <!-- 获取时钟容器 -->
+                clockDiv.textContent = hours + ':' + minutes + ':' + seconds; <!-- 更新时钟显示 -->
             }
 
-            setInterval(updateClock, 1000); // 每秒钟更新一次时钟
-            updateClock(); // 立即更新时钟
+            setInterval(updateClock, 1000); <!-- 每秒钟更新一次时钟 -->
+            updateClock(); <!-- 立即更新时钟 -->
         });
     </script>
 </body>
