@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,14 +30,15 @@
             padding: 50px; /* 设置内边距为 50 像素 */
             border-radius: 10px; /* 设置边框圆角为 10 像素 */
             opacity: 0; /* 初始透明度为 0，使元素不可见 */
-            transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+            transition: opacity 1s ease-in-out, transform 0.3s ease-in-out; /* 添加透明度和变换动画 */
+            cursor: pointer; /* 添加指针样式 */
         }
 
         .bottom-link { /*‘前往探索’按钮*/
             margin-top: 300px; /* 设置上外边距为 300 像素 */
             text-align: center; /* 设置文本居中对齐 */
             opacity: 0; /* 初始透明度为 0，使元素不可见 */
-            transition: opacity 4s ease-in-out; /* 添加透明度过渡效果，持续 4 秒，使用缓入缓出动画 */
+            transition: opacity 4s ease-in-out, transform 0.3s ease-in-out; /* 添加透明度和变换动画 */
         }
 
         .bottom-link a {
@@ -47,6 +47,11 @@
             background: rgba(0, 0, 0, 0.7); /* 设置背景颜色为半透明黑色 */
             padding: 10px 20px; /* 设置内边距为 10 像素（上下）和 20 像素（左右） */
             border-radius: 5px; /* 设置边框圆角为 5 像素 */
+            display: inline-block;
+        }
+
+        .bottom-link a:hover, .overlay:hover { /* 鼠标滑动效果 */
+            transform: scale(1.1); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
         }
 
         /* 导入数码管字体 */
@@ -74,27 +79,18 @@
                 opacity: 1; /* 结束透明度为 1 */
             }
         }
-
-        /* 定义鼠标滑动动画样式 */
-        .hover-effect {
-            transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
-        }
-
-        .hover-effect:hover {
-            transform: scale(1.2); /* 鼠标滑动到元素上时，元素放大 1.2 倍 */
-        }
     </style>
 </head>
 
 <body>
     <!-- 这里是你的网页内容 -->
     <header>
-        <div class="overlay" id="overlay">
+        <div class="overlay hover-effect" id="overlay">
             天地渊渊 谁曾可探
         </div>
     </header>
 
-    <div class="bottom-link" id="bottom-link">
+    <div class="bottom-link hover-effect" id="bottom-link">
         <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
 
