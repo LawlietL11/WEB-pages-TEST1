@@ -60,7 +60,7 @@
             flex: 1;
             padding: 15px;
             box-sizing: border-box;
-            background-color: rgba(95， 158， 160， 1);
+            background-color: rgba(255, 255， 255, 0.8);
             color: black;
             transition: opacity 1s ease;
             opacity: 0;
@@ -103,9 +103,9 @@
         
         .dropdown-content {
             /* position: absolute; 移除这行 */
-            background-color: rgba(255, 255,255, 0.3);
+            background-color: rgba(95,158，160 0.3);
             min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px 0 rgba(0，0,0,0.2);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s ease, max-height 0.5s ease;
@@ -118,11 +118,14 @@
             display: block;
             opacity: 1;
             max-height: 500px;
+            display: flex; /* 使用Flexbox布局 */
+            justify-content: center; /* 水平居中 */
         }
 
         .announcement-content img {
             width: 300px;
             height: auto;
+            margin: auto; /* 上下左右外边距自动，进一步确保居中 */
         }
 
         .announcement-content img.active {
