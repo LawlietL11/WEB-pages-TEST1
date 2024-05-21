@@ -141,11 +141,7 @@
             </div>
         </div>
     </div>
-    
-<div class="main">
-空
-</div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 获取资源链接和下拉菜单内容
@@ -153,7 +149,9 @@
             var dropdownContent = document.querySelector('.dropdown-content');
         
             // 监听资源链接的点击事件
-            resourceLink.addEventListener('click', function() {
+            resourceLink.addEventListener('click', function(event) {
+                // 阻止事件冒泡
+                event.stopPropagation();
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
             });
