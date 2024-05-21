@@ -52,7 +52,7 @@
             justify-content: center;
             transition: opacity 1s ease;
             opacity: 0;
-            height: auto; /* 添加这行，确保侧边栏高度能自适应内容 */
+            height: auto; /* 确保侧边栏高度能自适应内容 */
             text-align: center; /* 文本居中 */
         }
 
@@ -103,24 +103,21 @@
         }
         
         .dropdown-content {
-            /* position: absolute; 移除这行 */
-            background-color: rgba(95,158，160 0.3);
+            position: absolute; /* 确保下拉菜单相对于父元素绝对定位 */
+            background-color: rgba(95, 158, 160, 0.3); /* 更正RGBA格式 */
             min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0，0,0,0.2);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s ease, max-height 0.5s ease;
             max-height: 0;
             overflow: hidden;
-            position: relative; /* 添加这行 */
         }
         
         .dropdown-content.active {
             display: block;
             opacity: 1;
             max-height: 500px;
-            display: flex; /* 使用Flexbox布局 */
-            justify-content: center; /* 水平居中 */
         }
 
         .announcement-content img {
