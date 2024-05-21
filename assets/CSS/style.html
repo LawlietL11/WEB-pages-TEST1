@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灰狐网</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+    <div class="header">
+        <h1>灰狐网</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="navbar">
+                <a href="index.html">主页</a>
+                <div class="dropdown">
+                    <span>资源</span>
+                    <div class="dropdown-content">
+                        <a href="01web-guide.html">网页导航</a>
+                        <a href="01communication engineering.html">通信工程</a>
+                        <a href="01digital Electronics.html">数码技术</a>
+                        <a href="01books.html">书籍</a>
+                        <a href="01movies.html">影视</a>
+                        <a href="01history.html">历史</a>
+                        <a href="01AI.html">AI</a>
+                        <a href="01C-write.html">个人随笔</a>
+                    </div>
+                </div>
+                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
+            </div>
+        </div>
+        <div class="main">
+            空
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取资源链接和下拉菜单内容
+            var resourceLink = document.querySelector('.dropdown span');
+            var dropdownContent = document.querySelector('.dropdown-content');
+        
+            // 监听资源链接的点击事件
+            resourceLink.addEventListener('click', function(event) {
+                event.stopPropagation(); // 阻止事件冒泡
+                dropdownContent.classList。toggle('active'); // 切换下拉菜单的激活状态
+                if (dropdownContent.classList.contains('active')) {
+                    dropdownContent.style.opacity = 1; // 设置透明度为1
+                    dropdownContent.style.maxHeight = '500px'; // 设置最大高度
+                } else {
+                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
+                }
+            });
+
+            // 点击页面其他地方时隐藏资源子模块并淡出
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) { // 如果点击的不是资源链接或资源子模块
+                    dropdownContent.classList。remove('active');
+                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
+                }
+            });
+        });
+
+        window.onload = function() {
+            document.querySelector('.header')。style.opacity = 1; // 设置header透明度为1
+            document.querySelector('.sidebar')。style.opacity = 1; // 设置sidebar透明度为1
+        }
+    </script>
+</body>
+</html>
+
