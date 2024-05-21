@@ -113,6 +113,37 @@
             opacity: 1;
             max-height: 500px;
         }
+
+        .main {
+            flex: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            transition: opacity 1s ease;
+            overflow-y: auto;
+        }
+
+        .announcement-content img {
+            width: 300px;
+            height: auto;
+            display: none;
+        }
+
+        .announcement-content img.active {
+            display: block;
+        }
+
+        .announcement-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 50px;
+            margin: 0 auto;
+        }
+
+        .announcement-nav span {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -139,6 +170,33 @@
                 <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
             </div>
         </div>
+        <div class="main">
+            <div class="announcement">
+                <div class="announcement-content">
+                    <img src="assets/images/76473450_p0_master1200.webp" alt="Announcement 1" class="active">
+                    <img src="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" alt="Announcement 2">
+                </div>
+                <div class="announcement-nav">
+                    <span class="prev">&lt;</span>
+                    <span class="next">&gt;</span>
+                </div>
+            </div>
+            <h2>资源</h2>
+            <div class="edit-blog">
+                <h3>在线编辑博客</h3>
+                <textarea placeholder="在这里写下你的博客..."></textarea>
+                <button>提交</button>
+            </div>
+            <div class="posts">
+                <h3>博客文章</h3>
+                <ul id="posts-list">
+                    <!-- JavaScript 将在此加载帖子 -->
+                </ul>
+            </div>
+            <div class="external-link">
+                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰虎网</a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -151,6 +209,10 @@
                 dropdownContent.classList.toggle('active');
                 if (dropdownContent.classList.contains('active')) {
                     dropdownContent.style.opacity = 1;
+                    dropdownContent.style.maxHeight = '500px';
+                } else {
+                    dropdownContent.style.opacity = 0;
+                    dropdownContent.style.maxHeight = '0';
                 }
             });
 
@@ -158,18 +220,29 @@
                 if (!event.target.closest('.dropdown')) {
                     dropdownContent.classList.remove('active');
                     dropdownContent.style.opacity = 0;
+                    dropdownContent.style.maxHeight = '0';
                 }
             });
 
-            dropdownContent.addEventListener('transitionend', function() {
-                if (!dropdownContent.classList.contains('active')) {
-                    dropdownContent.style.maxHeight = 0;
-                } else {
-                    dropdownContent.style.maxHeight = '500px';
-                }
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.announcement-content img');
+            const totalSlides = slides.length;
+
+            document.querySelector('.next').addEventListener('click', () => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].classList.add('active');
             });
+
+            document.querySelector('.prev').addEventListener('click', () => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            });
+
+            slides[currentSlide].classList.add('active');
         });
-        
+
         window.onload = function() {
             document.querySelector('.header').style.opacity = 1;
             document.querySelector('.sidebar').style.opacity = 1;
