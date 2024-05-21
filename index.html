@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- 定义文档的字符编码为UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以适应不同设备的宽度 -->
-    <title>灰狐网</title> <!-- 网页标题 -->
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- 引入外部CSS文件 -->
-    <link rel="icon" href="assets/css/style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灰狐网</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 添加自定义样式 */
 
-    
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .overlay {
+            color: white;
+            font-size: 2em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .bottom-link {
+            margin-top: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .bottom-link a {
+            color: white;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
 
         /* 添加时钟样式 */
         #clock {
-            font-size: 2em; /* 字体大小 */
-            color: white; /* 字体颜色 */
-            margin-top: 20px; /* 上外边距 */
+            font-size: 2em;
+            color: white;
+            margin-top: 20px;
             opacity: 0; /* 初始不可见 */
             animation: fadeIn 4s ease-in-out forwards; /* 使用动画淡入 */
         }
@@ -32,43 +68,43 @@
 </head>
 <body>
     <div class="overlay" id="overlay">
-        天地渊渊 谁曾可探 <!-- 覆盖层文字 -->
+        天地渊渊 谁曾可探
     </div>
 
     <div class="bottom-link" id="bottom-link">
-        <a href="main.html">前往探索</a> <!-- 链接按钮，文本为“前往探索” -->
+        <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
 
     <!-- 添加时钟容器 -->
     <div id="clock"></div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() { <!-- DOM内容加载完成后执行 -->
+        document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
             setTimeout(function(){
-                overlay.style.opacity = '1'; <!-- 1秒后，覆盖层文字淡入 -->
-                bottomLink.style.opacity = '1'; <!-- 1秒后，链接按钮淡入 -->
+                overlay.style.opacity = '1';
+                bottomLink.style.opacity = '1';
             }, 1000);
 
             // 时钟显示功能
             function updateClock() {
-                var now = new Date(); <!-- 获取当前时间 -->
-                var hours = now.getHours(); <!-- 获取当前小时 -->
-                var minutes = now.getMinutes(); <!-- 获取当前分钟 -->
-                var seconds = now.getSeconds(); <!-- 获取当前秒钟 -->
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
 
                 // 添加前导零以确保两位数
-                hours = hours < 10 ? '0' + hours : hours; <!-- 小时补零 -->
-                minutes = minutes < 10 ? '0' + minutes : minutes; <!-- 分钟补零 -->
-                seconds = seconds < 10 ? '0' + seconds : seconds; <!-- 秒钟补零 -->
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
 
-                var clockDiv = document.getElementById('clock'); <!-- 获取时钟容器 -->
-                clockDiv.textContent = hours + ':' + minutes + ':' + seconds; <!-- 更新时钟显示 -->
+                var clockDiv = document.getElementById('clock');
+                clockDiv.textContent = hours + ':' + minutes + ':' + seconds;
             }
 
-            setInterval(updateClock, 1000); <!-- 每秒钟更新一次时钟 -->
-            updateClock(); <!-- 立即更新时钟 -->
+            setInterval(updateClock, 1000); // 每秒钟更新一次时钟
+            updateClock(); // 立即更新时钟
         });
     </script>
 </body>
