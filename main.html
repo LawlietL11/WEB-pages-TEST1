@@ -52,6 +52,7 @@
             justify-content: center;
             transition: opacity 1s ease;
             opacity: 0;
+            height: auto; /* 添加这行，确保侧边栏高度能自适应内容 */
         }
 
         .main {
@@ -100,8 +101,7 @@
         }
         
         .dropdown-content {
-            display: none;
-            position: absolute;
+            /* position: absolute; 移除这行 */
             background-color: rgba(0, 0, 0, 0.9);
             min-width: 160px;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -110,6 +110,7 @@
             transition: opacity 0.5s ease, max-height 0.5s ease;
             max-height: 0;
             overflow: hidden;
+            position: relative; /* 添加这行 */
         }
         
         .dropdown-content.active {
