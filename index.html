@@ -32,25 +32,13 @@
             border-radius: 10px; /* 设置边框圆角为 10 像素 */
             opacity: 0; /* 初始透明度为 0，使元素不可见 */
             transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
-            cursor: pointer; /* 添加指针样式 */
         }
 
         .bottom-link { /*‘前往探索’按钮*/
             margin-top: 300px; /* 设置上外边距为 300 像素 */
             text-align: center; /* 设置文本居中对齐 */
             opacity: 0; /* 初始透明度为 0，使元素不可见 */
-            font-size: 2em; /* 设置字体大小为 5em */
             transition: opacity 4s ease-in-out; /* 添加透明度过渡效果，持续 4 秒，使用缓入缓出动画 */
-        }
-
-        .overlay， .bottom-link a { /* 鼠标滑动动画样式 */
-            opacity: 0; /* 设置初始透明度为 0 */
-            transition: opacity 2s ease-in-out; /* 设置淡入效果的过渡时间为 2 秒 */
-            transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
-        }
-
-        .bottom-link a:hover, .overlay:hover { /* 鼠标滑动效果 */
-            transform: scale(1.1); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
         }
 
         .bottom-link a {
@@ -93,7 +81,7 @@
         }
 
         .hover-effect:hover {
-            transform: scale(1.1); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
+            transform: scale(1.2); /* 鼠标滑动到元素上时，元素放大 1.2 倍 */
         }
     </style>
 </head>
@@ -101,25 +89,26 @@
 <body>
     <!-- 这里是你的网页内容 -->
     <header>
-        <div class="overlay hover-effect" id="overlay">
+        <div class="overlay" id="overlay">
             天地渊渊 谁曾可探
         </div>
     </header>
 
-    <div class="bottom-link hover-effect" id="bottom-link">
+    <div class="bottom-link" id="bottom-link">
         <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
 
     <!-- 添加时钟容器 -->
-    <div id="clock" class="hover-effect"></div><!-- 给时钟元素添加 hover 效果的类 -->
+    <div id="clock" class="hover-effect"></div> <!-- 给时钟元素添加 hover 效果的类 -->
 
     <script>
-            document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
-            // 使用 CSS 动画代替 setTimeout 来实现淡入效果
-            overlay.style.opacity = '1';
-            bottomLink.style.opacity = '1';
+            setTimeout(function(){
+                overlay.style.opacity = '1';
+                bottomLink.style.opacity = '1';
+            }, 1000);
 
             // 时钟显示功能
             function updateClock() {
@@ -143,4 +132,3 @@
     </script>
 </body>
 </html>
-
