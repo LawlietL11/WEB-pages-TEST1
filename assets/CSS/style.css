@@ -1,3 +1,4 @@
+/* 通用样式 */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,65 +7,60 @@ body, html {
     font-family: Arial, sans-serif;
     color: white;
     overflow: hidden;
+    background-image: url('../images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); /* 设置背景图片 */
+    background-size: cover; /* 背景图片全屏 */
+    background-position: center; /* 背景图片居中 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.background {
-    background-image: url('../images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-    background-size: cover;
-    background-position: center;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.clock {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    font-family: 'Courier New', Courier, monospace;
+/* 时钟样式 */
+#clock {
+    font-size: 2em;
+    margin-top: 20px;
     opacity: 0;
-    transition: opacity 2s;
+    animation: fadeIn 4s ease-in-out forwards; /* 使用动画淡入 */
 }
 
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* 渐变动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 覆盖层样式 */
+.overlay {
+    color: white;
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.bottom-link {
+    margin-top: 20px;
     text-align: center;
-}
-
-#main-text {
-    font-size: 36px; /* 可以根据需要调整字体大小 */
     opacity: 0;
-    transition: opacity 2s;
+    transition: opacity 1s ease-in-out;
 }
 
-.bottom {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 2s;
-}
-
-.bottom a {
+.bottom-link a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    border: 1px solid white;
+    background: rgba(0, 0, 0, 0.7);
     padding: 10px 20px;
-    transition: background 0.3s;
+    border-radius: 5px;
 }
 
-.bottom a:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
+/* 侧边栏样式 */
 .sidebar {
     position: fixed;
     left: 0;
@@ -119,6 +115,7 @@ body, html {
     margin-bottom: 20px;
 }
 
+/* 公告栏样式 */
 .announcement {
     position: relative;
     overflow: hidden;
@@ -160,4 +157,3 @@ body, html {
 .announcement-nav .next:hover {
     background: rgba(0, 0, 0, 0.7);
 }
-
