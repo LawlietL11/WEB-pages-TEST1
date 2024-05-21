@@ -13,6 +13,7 @@
             font-family: Arial, sans-serif;
             height: 100%;
             width: 100%;
+            overflow: hidden;
         }
 
         body {
@@ -109,7 +110,6 @@
         }
         
         .dropdown-content.active {
-            display: block;
             opacity: 1;
             max-height: 500px;
         }
@@ -141,83 +141,34 @@
         </div>
     </div>
 
-        <div class="main">
-            <div class="announcement">
-                <div class="announcement-content">
-                    <img src="assets/images/76473450_p0_master1200.webp" alt="Announcement 1">
-                    <img src="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" alt="Announcement 2">
-                </div>
-                <div class="announcement-nav">
-                    <span class="prev">&lt;</span>
-                    <span class="next">&gt;</span>
-                </div>
-            </div>
-            <h2>资源</h2>
-            <div class="edit-blog">
-                <h3>在线编辑博客</h3>
-                <textarea placeholder="在这里写下你的博客..."></textarea>
-                <button>提交</button>
-            </div>
-            <div class="posts">
-                <h3>博客文章</h3>
-                <ul id="posts-list">
-                    <!-- JavaScript 将在此加载帖子 -->
-                </ul>
-            </div>
-            <div class="external-link">
-                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰虎网</a>
-            </div>
-        </div>
-    </div>
-
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 获取资源链接和下拉菜单内容
             var resourceLink = document.querySelector('.dropdown span');
             var dropdownContent = document.querySelector('.dropdown-content');
         
-            // 监听资源链接的点击事件
             resourceLink.addEventListener('click', function(event) {
-                // 阻止事件冒泡
                 event.stopPropagation();
-                // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
-                // 设置子模块的透明度为1
-                dropdownContent.style.opacity = 1;
+                if (dropdownContent.classList.contains('active')) {
+                    dropdownContent.style.opacity = 1;
+                }
             });
 
-            // 点击页面其他地方时隐藏资源子模块并淡出
             document.addEventListener('click', function(event) {
-                var targetElement = event.target; // 获取点击的元素
-                // 如果点击的不是资源链接或资源子模块，则隐藏资源子模块并淡出
-                if (!targetElement.closest('.dropdown') && !targetElement.classList.contains('dropdown-content')) {
+                if (!event.target.closest('.dropdown')) {
                     dropdownContent.classList.remove('active');
-                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                    dropdownContent.style.opacity = 0;
+                }
+            });
+
+            dropdownContent.addEventListener('transitionend', function() {
+                if (!dropdownContent.classList.contains('active')) {
+                    dropdownContent.style.maxHeight = 0;
+                } else {
+                    dropdownContent.style.maxHeight = '500px';
                 }
             });
         });
-
-            // 公告栏滑动功能
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.announcement-content img');
-            const totalSlides = slides.length;
-        
-            document.querySelector('.next').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            });
-        
-            document.querySelector('.prev').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            });
-        
-            slides[currentSlide].classList.add('active');
-        });
-
         
         window.onload = function() {
             document.querySelector('.header').style.opacity = 1;
