@@ -1,0 +1,94 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* 设置背景色 */
+}
+
+.sidebar {
+    background-color: #333; /* 设置侧边栏背景色 */
+    color: #fff; /* 设置侧边栏文字颜色 */
+    width: 200px; /* 设置侧边栏宽度 */
+    height: 100%; /* 使侧边栏高度与页面高度相同 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* 添加滚动条 */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 200px; /* 设置主内容区域与侧边栏的间距 */
+    padding: 20px;
+}
+
+.header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.announcement {
+    position: relative;
+    margin-top: 20px;
+}
+
+.announcement-content {
+    display: flex;
+    overflow-x: auto;
+}
+
+.announcement-content img {
+    width: 100%;
+    display: none;
+}
+
+.announcement-content img.active {
+    display: block;
+}
+
+.announcement-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.announcement-nav span {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Clock Styles */
+#clock {
+    opacity: 0; /* 设置时钟初始透明度为0 */
+    transition: opacity 1s ease; /* 添加渐变效果 */
+}
+
+/* Bottom Content Styles */
+.bottom {
+    opacity: 0; /* 设置底部内容初始透明度为0 */
+    transition: opacity 1s ease; /* 添加渐变效果 */
+}
