@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 添加自定义样式 */
-
         body {
             margin: 0;
             padding: 0;
@@ -28,6 +27,8 @@
             padding: 10px;
             text-align: center;
             width: 100%;
+            transition: opacity 1s ease;
+            opacity: 0;
         }
 
         .container {
@@ -49,6 +50,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: opacity 1s ease;
+            opacity: 0;
         }
 
         .main {
@@ -57,6 +60,8 @@
             box-sizing: border-box;
             background-color: rgba(255, 255, 255, 0.8);
             color: black;
+            transition: opacity 1s ease;
+            opacity: 0;
         }
         
         .navbar a, .dropdown span {
@@ -116,6 +121,25 @@
         .announcement-content img {
             width: 300px;
             height: auto;
+        }
+
+        .announcement-content img.active {
+            display: block;
+        }
+
+        .announcement-content img {
+            display: none;
+        }
+
+        .announcement-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 50px;
+            margin: 0 auto;
+        }
+
+        .announcement-nav span {
+            cursor: pointer;
         }
     </style>
 </head>
