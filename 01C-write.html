@@ -6,15 +6,17 @@
     <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* 添加自定义样式 */
+        /* 设置html和body元素的基本样式，确保页面无边距和填充，并设置字体 */
         html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             height: 100%;
             width: 100%;
+            overflow: hidden; /* 禁止页面滚动 */
         }
 
+        /* 设置body元素的背景图像和布局样式 */
         body {
             background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
             background-size: cover;
@@ -25,16 +27,18 @@
             justify-content: center;
         }
 
+        /* 设置header元素的样式，包括背景色、字体颜色、填充和透明度过渡效果 */
         .header {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             padding: 10px;
             text-align: center;
             width: 100%;
-            transition: opacity 1s ease;
-            opacity: 0;
+            transition: opacity 1s ease; /* 渐变效果 */
+            opacity: 0; /* 初始透明度 */
         }
 
+        /* 设置容器的布局，水平排列内容 */
         .container {
             display: flex;
             justify-content: flex-start;
@@ -43,6 +47,7 @@
             height: 100%;
         }
 
+        /* 设置侧边栏的样式，包括宽度、背景色、字体和透明度过渡效果 */
         .sidebar {
             width: 10%;
             background-color: rgba(0, 0, 0, 0.7);
@@ -55,11 +60,12 @@
             flex-direction: column;
             justify-content: flex-start;
             transition: opacity 1s ease;
-            opacity: 0;
+            opacity: 0; /* 初始透明度 */
             height: 100%;
             text-align: center;
         }
         
+        /* 设置导航栏链接和下拉菜单触发元素的样式 */
         .navbar a, .dropdown span {
             display: block;
             margin: 0;
@@ -69,50 +75,69 @@
             font-family: Arial, sans-serif;
         }
         
+        /* 设置导航栏链接和下拉菜单内容的悬停效果 */
         .navbar a:hover, .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
         
+        /* 设置下拉菜单内容的链接样式 */
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             font-family: Arial, sans-serif;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease; /* 背景色渐变效果 */
         }
         
+        /* 设置下拉菜单内容的悬停效果 */
         .dropdown-content a:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
         
+        /* 设置外部链接的样式 */
         .external-link a {
             color: blue;
             text-decoration: underline;
         }
         
+        /* 设置下拉菜单的容器样式 */
         .dropdown {
             position: relative;
             display: inline-block;
         }
         
+        /* 设置下拉菜单内容的初始样式，包括透明度和高度过渡效果 */
         .dropdown-content {
             position: absolute;
             background-color: rgba(95, 158, 160, 0.3); /* 更正RGBA格式 */
             min-width: 160px;
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s ease, max-height 0.5s ease;
-            max-height: 0;
+            opacity: 0; /* 初始透明度 */
+            transition: opacity 0.5s ease, max-height 0.5s ease; /* 渐变效果 */
+            max-height: 0; /* 初始高度 */
             overflow: hidden;
         }
         
+        /* 设置下拉菜单内容在激活时的样式 */
         .dropdown-content.active {
-            display: block;
-            opacity: 1;
-            max-height: 500px;
+            opacity: 1; /* 完全不透明 */
+            max-height: 500px; /* 最大高度 */
         }
+
+        /* 设置主内容区域的样式 */
+        .main {
+            flex: 1;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            transition: opacity 1s ease;
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+
+
     </style>
 </head>
 <body>
@@ -139,7 +164,7 @@
                 <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
             </div>
         </div>
-    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -149,28 +174,31 @@
         
             // 监听资源链接的点击事件
             resourceLink.addEventListener('click', function(event) {
-                // 阻止事件冒泡
-                event.stopPropagation();
-                // 切换下拉菜单的激活状态
-                dropdownContent.classList.toggle('active');
-                // 设置子模块的透明度为1
-                dropdownContent.style.opacity = 1;
-            });
-
-            // 点击页面其他地方时隐藏资源子模块并淡出
-            document.addEventListener('click', function(event) {
-                var targetElement = event.target; // 获取点击的元素
-                // 如果点击的不是资源链接或资源子模块，则隐藏资源子模块并淡出
-                if (!targetElement.closest('.dropdown') && !targetElement.classList.contains('dropdown-content')) {
-                    dropdownContent.classList.remove('active');
+                event.stopPropagation(); // 阻止事件冒泡
+                dropdownContent.classList.toggle('active'); // 切换下拉菜单的激活状态
+                if (dropdownContent.classList.contains('active')) {
+                    dropdownContent.style.opacity = 1; // 设置透明度为1
+                    dropdownContent.style.maxHeight = '500px'; // 设置最大高度
+                } else {
                     dropdownContent.style.opacity = 0; // 设置透明度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置最大高度为0
                 }
             });
-        });
-        
+
+            // 监听点击页面其他地方的事件
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) { // 如果点击的不是下拉菜单
+                    dropdownContent.classList.remove('active'); // 移除激活状态
+                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置最大高度为0
+                }
+            });
+
+
+
         window.onload = function() {
-            document.querySelector('.header').style.opacity = 1;
-            document.querySelector('.sidebar').style.opacity = 1;
+            document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
+            document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
         }
     </script>
 </body>
