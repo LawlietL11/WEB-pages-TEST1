@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
-   
+    <link rel="stylesheet" href="assets/css/background.css"> <!-- 引用背景样式表 -->
 
+    <style>
+    /* 添加时钟样式 */
+        #clock {
+            font-size: 2em;
+            color: white;
+            margin-top: 20px;
+            opacity: 0; /* 初始不可见 */
+            animation: fadeIn 4s ease-in-out forwards; /* 使用动画淡入 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    
 </head>
 <body>
     <div class="overlay" id="overlay">
