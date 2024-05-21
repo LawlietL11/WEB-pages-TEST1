@@ -13,7 +13,6 @@
             font-family: Arial, sans-serif;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* 禁止页面滚动 */
         }
 
         body {
@@ -154,6 +153,8 @@
                 event.stopPropagation();
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
+                // 设置子模块的透明度为1
+                dropdownContent.style.opacity = 1;
             });
 
             // 点击页面其他地方时隐藏资源子模块并淡出
