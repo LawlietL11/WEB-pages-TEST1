@@ -5,37 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/x-icon">
-</head>
+    <style>
+        /* 添加自定义样式 */
 
- <style>
-
-             body {
-            margin: 0; /* 移除默认的页面边距 */
-            padding: 0; /* 移除默认的页面内边距 */
-            font-family: Arial, sans-serif; /* 设置页面字体为 Arial，如果不可用则使用 sans-serif */
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); 
-            /* 设置背景图片 */
-            background-size: cover; /* 背景图片覆盖整个容器 */
-            background-position: center; /* 背景图片居中对齐 */
-            display: flex; /* 使用 Flexbox 布局 */
-            flex-direction: column; /* 垂直排列子元素 */
-            align-items: center; /* 子元素水平居中 */
-            justify-content: center; /* 子元素垂直居中 */
-            height: 100vh; /* 高度设为视口高度 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
-         .sidebar {
-        background-color: rgba(0, 0, 0, 0.7); /* 设置侧边栏背景色 */
-        color: #fff; /* 设置侧边栏文字颜色 */
-        width: 20%; /* 设置侧边栏宽度 200px是200像素点*/
-        height: 100%; /* 使侧边栏高度与页面高度相同 */
-        position: fixed;
-        top: 0;
-        left: 0;
-        overflow-y: auto; /* 添加滚动条 */
-        }
-        
         .header {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
@@ -117,51 +103,59 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
- </style>
-    
+    </style>
+</head>
 <body>
-    <div class="background"></div>                    <!-- 背景层 -->
-    <div class="sidebar">                             <!-- 侧边栏 -->
-        <ul>
-            <li><a href="index.html">主页</a></li>
-            <li>公告</li>
-            <li class="dropdown">
-                <a href="#">资源</a>
-                <div class="dropdown-content">
-                    <a href="01web-guide.html">网页导航</a>
-                    <a href="01communication engineering.html">通信工程</a>
-                    <a href="01digital Electronics.html">数码技术</a>
-                    <a href="01books.html">书籍</a>
-                    <a href="01movies.html">影视</a>
-                    <a href="01history.html">历史</a>
-                    <a href="01AI.html">AI</a>
-                    <a href="01C-write.html">个人随笔</a>
-                </div>
-            </li>
-            <li><a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat">联系我？</a></li>
-        </ul>
+    <div class="header">
+        <h1>灰狐网</h1>
     </div>
-    <div class="main-content">
-        <div class="header">灰狐网</div>
-        <div class="announcement">
-            <div class="announcement-content">
-                <img src="assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg" alt="Announcement 1">
-                <img src="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" alt="Announcement 2">
+    <div class="container">
+        <div class="sidebar">
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <span>Resources</span>
+                    <div class="dropdown-content">
+                        <a href="#">通信工程</a>
+                        <a href="#">数码电子</a>
+                        <a href="#">AI知识</a>
+                        <a href="#">历史</a>
+                        <a href="#">影视</a>
+                        <a href="#">小说</a>
+                        <a href="#">网站资源</a>
+                        <a href="https://lawlietl11.github.io/web-pages-test1/C-write.html" target="_blank">C-个人随笔</a>
+                    </div>
+                </div>
+                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">Contact</a> <!-- 修改 "联系" 链接 -->
             </div>
-            <div class="announcement-nav">
-                <span class="prev">&lt;</span>
-                <span class="next">&gt;</span>
+        </div>
+        <div class="main">
+            <h2>资源</h2>
+            <div class="edit-blog">
+                <h3>在线编辑博客</h3>
+                <textarea placeholder="在这里写下你的博客..."></textarea>
+                <button>提交</button>
+            </div>
+            <div class="posts">
+                <h3>博客文章</h3>
+                <ul id="posts-list">
+                    <!-- JavaScript 将在此加载帖子 -->
+                </ul>
+            </div>
+            <div class="external-link">
+                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰虎网</a> <!-- 修改链接文本为 "访问灰虎网" -->
             </div>
         </div>
     </div>
 
 
-
+    
+ </script>
         // 渐变动画
         window.onload = function() {
-            document.getElementById('clock')。style.opacity = 1;
+            document.getElementById('.header')。style.opacity = 1;
             document.getElementById('main-text')。style.opacity = 1;
-            document.querySelector('.bottom')。style.opacity = 1;
+            document.querySelector('.sidebar')。style.opacity = 1;
         }
         
         // 公告栏滑动功能
@@ -183,5 +177,6 @@
 
         slides[currentSlide].classList.add('active');
     </script>
+    
 </body>
 </html>
