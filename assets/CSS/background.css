@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); /* 设置背景图片 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 设置页面高度为视口的100% */
+}
+
+.overlay {
+    color: white;
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0; /* 初始透明度为0，使元素不可见 */
+    transition: opacity 1s ease-in-out; /* 添加透明度过渡效果 */
+}
+
+.bottom-link {
+    margin-top: 20px;
+    text-align: center;
+    opacity: 0; /* 初始透明度为0，使元素不可见 */
+    transition: opacity 1s ease-in-out; /* 添加透明度过渡效果 */
+}
+
+.bottom-link a {
+    color: white;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
