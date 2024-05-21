@@ -8,6 +8,33 @@
     <link rel="stylesheet" href="assets/css/background.css"> <!-- 引用背景样式表 -->
     <link rel="stylesheet" href="assets/css/timer.css"> <!-- 引用时钟样式表 -->
 </head>
+    <style>
+            
+    .overlay {
+            color: white; /* 设置文字颜色为白色 */
+            font-size: 2em; /* 设置字体大小为 2em */
+            background: rgba(0, 0, 0, 0.5); /* 设置背景颜色为半透明黑色 */
+            padding: 20px; /* 设置内边距为 20 像素 */
+            border-radius: 10px; /* 设置边框圆角为 10 像素 */
+            opacity: 0; /* 初始透明度为 0，使元素不可见 */
+            transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+        }
+    
+    .bottom-link {
+            margin-top: 20px; /* 设置上外边距为 20 像素 */
+            text-align: center; /* 设置文本居中对齐 */
+            opacity: 0; /* 初始透明度为 0，使元素不可见 */
+            transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+        }
+    
+    .bottom-link a {
+            color: white; /* 设置链接文字颜色为白色 */
+            text-decoration: none; /* 去掉链接下划线 */
+            background: rgba(0, 0, 0, 0.7); /* 设置背景颜色为半透明黑色 */
+            padding: 10px 20px; /* 设置内边距为 10 像素（上下）和 20 像素（左右） */
+            border-radius: 5px; /* 设置边框圆角为 5 像素 */
+        }
+    </style>
 <body>
     <div class="overlay" id="overlay">
         天地渊渊 谁曾可探
