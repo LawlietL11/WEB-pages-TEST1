@@ -18,9 +18,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* 禁止页面滚动 */
+            height: 100vh;
         }
 
         .header {
@@ -51,10 +49,10 @@
             font-size: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* 确保内容从顶部开始排列 */
+            justify-content: center;
             transition: opacity 1s ease;
             opacity: 0;
-            height: 100%; /* 确保侧边栏高度能自适应内容 */
+            height: auto; /* 添加这行，确保侧边栏高度能自适应内容 */
             text-align: center; /* 文本居中 */
         }
 
@@ -105,21 +103,24 @@
         }
         
         .dropdown-content {
-            position: absolute; /* 确保下拉菜单相对于父元素绝对定位 */
-            background-color: rgba(95, 158, 160, 0.3); /* 更正RGBA格式 */
+            /* position: absolute; 移除这行 */
+            background-color: rgba(95,158,160,0.3);
             min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s ease, max-height 0.5s ease;
             max-height: 0;
             overflow: hidden;
+            position: relative; /* 添加这行 */
         }
         
         .dropdown-content.active {
             display: block;
             opacity: 1;
             max-height: 500px;
+            display: flex; /* 使用Flexbox布局 */
+            justify-content: center; /* 水平居中 */
         }
 
         .announcement-content img {
@@ -169,7 +170,7 @@
                         <a href="01C-write.html">个人随笔</a>
                     </div>
                 </div>
-                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
+                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们？</a>
             </div>
         </div>
         
@@ -208,24 +209,19 @@
             var resourceLink = document.querySelector('.dropdown span');
             var dropdownContent = document.querySelector('.dropdown-content');
         
-                 // 监听资源链接的点击事件
-            resourceLink.addEventListener('click', function(event) {
-                // 阻止事件冒泡
-                event.stopPropagation();
+            // 监听资源链接的点击事件
+            resourceLink.addEventListener('click', function() {
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
             });
 
-                // 点击页面其他地方时隐藏资源子模块并淡出
+            // 点击页面其他部分时隐藏资源子模块
             document.addEventListener('click', function(event) {
-                var targetElement = event.target; // 获取点击的元素
-                // 如果点击的不是资源链接或资源子模块，则隐藏资源子模块并淡出
-                if (!targetElement.closest('.dropdown') && !targetElement.classList.contains('dropdown-content')) {
+                var target = event.target;
+                if (!target.closest('.dropdown')) {
                     dropdownContent.classList.remove('active');
-                    dropdownContent.style.opacity = 0; // 设置透明度为0
                 }
             });
-        });
 
             // 公告栏滑动功能
             let currentSlide = 0;
