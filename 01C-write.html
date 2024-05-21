@@ -6,7 +6,7 @@
     <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* 设置html和body元素的基本样式，确保页面无边距和填充，并设置字体 */
+        /* 添加自定义样式 */
         html, body {
             margin: 0;
             padding: 0;
@@ -136,8 +136,6 @@
             transition: opacity 1s ease;
             overflow-y: auto; /* 允许垂直滚动 */
         }
-
-
     </style>
 </head>
 <body>
@@ -164,7 +162,19 @@
                 <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
             </div>
         </div>
-
+        <div class="main">
+            <h2>资源</h2>
+            <div class="posts">
+                <h3>博客文章</h3>
+                <ul id="posts-list">
+                    <!-- JavaScript 将在此加载帖子 -->
+                </ul>
+            </div>
+            <div class="external-link">
+                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰狐网</a>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -181,20 +191,19 @@
                     dropdownContent.style.maxHeight = '500px'; // 设置最大高度
                 } else {
                     dropdownContent.style.opacity = 0; // 设置透明度为0
-                    dropdownContent.style.maxHeight = '0'; // 设置最大高度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
                 }
             });
 
-            // 监听点击页面其他地方的事件
+            // 点击页面其他地方时隐藏资源子模块并淡出
             document.addEventListener('click', function(event) {
-                if (!event.target.closest('.dropdown')) { // 如果点击的不是下拉菜单
-                    dropdownContent.classList.remove('active'); // 移除激活状态
+                if (!event.target.closest('.dropdown')) { // 如果点击的不是资源链接或资源子模块
+                    dropdownContent.classList.remove('active');
                     dropdownContent.style.opacity = 0; // 设置透明度为0
-                    dropdownContent.style.maxHeight = '0'; // 设置最大高度为0
+                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
                 }
             });
-
-
+        });
 
         window.onload = function() {
             document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
