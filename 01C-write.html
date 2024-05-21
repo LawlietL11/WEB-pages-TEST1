@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 添加自定义样式 */
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* 禁止页面滚动 */
+        }
+
+        body {
             background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
             background-size: cover;
             background-position: center;
@@ -18,7 +24,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
         }
 
         .header {
@@ -49,18 +54,18 @@
             font-size: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* 确保内容从顶部开始排列 */
+            justify-content: flex-start;
             transition: opacity 1s ease;
             opacity: 0;
-            height: auto; /* 确保侧边栏高度能自适应内容 */
-            text-align: center; /* 文本居中 */
+            height: 100%;
+            text-align: center;
         }
         
         .navbar a, .dropdown span {
-            display: block; /* 使元素以块状形式显示 */
-            margin: 0; /* 移除外边距 */
-            padding: 10px; /* 统一内边距 */            
-            color: white;            
+            display: block;
+            margin: 0;
+            padding: 10px;
+            color: white;
             text-decoration: none;
             font-family: Arial, sans-serif;
         }
@@ -93,7 +98,7 @@
         }
         
         .dropdown-content {
-            position: absolute; /* 确保下拉菜单相对于父元素绝对定位 */
+            position: absolute;
             background-color: rgba(95, 158, 160, 0.3); /* 更正RGBA格式 */
             min-width: 160px;
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -136,11 +141,10 @@
             </div>
         </div>
     </div>
-
+    
 <div class="main">
-    空
+空
 </div>
-
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -152,6 +156,16 @@
             resourceLink.addEventListener('click', function() {
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
+            });
+
+            // 点击页面其他地方时隐藏资源子模块并淡出
+            document.addEventListener('click', function(event) {
+                var targetElement = event.target; // 获取点击的元素
+                // 如果点击的不是资源链接或资源子模块，则隐藏资源子模块并淡出
+                if (!targetElement.closest('.dropdown') && !targetElement.classList.contains('dropdown-content')) {
+                    dropdownContent.classList.remove('active');
+                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                }
             });
         });
         
