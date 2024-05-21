@@ -44,6 +44,8 @@
         }
 
         .overlay， .bottom-link a { /* 鼠标滑动动画样式 */
+            opacity: 0; /* 设置初始透明度为 0 */
+            transition: opacity 2s ease-in-out; /* 设置淡入效果的过渡时间为 2 秒 */
             transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
         }
 
@@ -112,13 +114,12 @@
     <div id="clock" class="hover-effect"></div><!-- 给时钟元素添加 hover 效果的类 -->
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
-            setTimeout(function(){
-                overlay.style.opacity = '1';
-                bottomLink.style.opacity = '1';
-            }, 1000);
+            // 使用 CSS 动画代替 setTimeout 来实现淡入效果
+            overlay.style.opacity = '1';
+            bottomLink.style.opacity = '1';
 
             // 时钟显示功能
             function updateClock() {
