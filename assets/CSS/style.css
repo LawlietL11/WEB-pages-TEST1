@@ -1,6 +1,163 @@
-/*背景图片样式*/
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
 
+.background {
+    background-image: url('../images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 
+.clock {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    opacity: 0;
+    transition: opacity 2s;
+}
 
-/* 新增的样式 */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#main-text {
+    font-size: 36px; /* 可以根据需要调整字体大小 */
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.bottom a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid white;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.bottom a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul .dropdown {
+    position: relative;
+}
+
+.sidebar ul .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 200px;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar ul .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.announcement {
+    position: relative;
+    overflow: hidden;
+}
+
+.announcement-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.announcement-content img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.announcement-content img.active {
+    display: block;
+}
+
+.announcement-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.announcement-nav .prev,
+.announcement-nav .next {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.announcement-nav .prev:hover,
+.announcement-nav .next:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
 
