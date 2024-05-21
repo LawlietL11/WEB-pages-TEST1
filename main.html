@@ -210,10 +210,20 @@
             resourceLink.addEventListener('click', function() {
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
-                dropdownContent.classList.toggle('active');
                 // 设置子模块的透明度为1
                 dropdownContent.style.opacity = 1;
             });
+
+                // 点击页面其他地方时隐藏资源子模块并淡出
+            document.addEventListener('click', function(event) {
+                var targetElement = event.target; // 获取点击的元素
+                // 如果点击的不是资源链接或资源子模块，则隐藏资源子模块并淡出
+                if (!targetElement.closest('.dropdown') && !targetElement.classList.contains('dropdown-content')) {
+                    dropdownContent.classList.remove('active');
+                    dropdownContent.style.opacity = 0; // 设置透明度为0
+                }
+            });
+        });
 
             // 公告栏滑动功能
             let currentSlide = 0;
