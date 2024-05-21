@@ -52,24 +52,34 @@
             border-radius: 5px; 				/* 设置边框圆角为 5 像素 */
         }
 		
-	 /* 添加时钟样式 */
-        #clock {
-            font-size: 3em;						/*字体大小*/
-            color: white;						/*颜色*/
-            margin-top: 100px;						/*高低*/
-            opacity: 0; 						/* 初始不可见 */
-            animation: fadeIn 2s ease-in-out forwards; 			/* 使用动画淡入 */
-	    text-align: center; 
-        }
+<style>
+    /* 导入数码管字体 */
+    @font-face {
+        font-family: 'Digital-7';
+        src: url('path/to/fonts/digital-7.ttf') format('truetype');
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }	
+    /* 添加时钟样式 */
+    #clock {
+        font-size: 3em; /* 字体大小 */
+        color: white; /* 文字颜色 */
+        margin-top: 100px; /* 顶部外边距 */
+        opacity: 0; /* 初始透明度为 0 */
+        animation: fadeIn 2s ease-in-out forwards; /* 使用动画淡入效果，持续 2 秒，缓入缓出，结束后保持最终状态 */
+        text-align: center; /* 文字居中对齐 */
+        font-family: 'Digital-7', Arial, sans-serif; /* 设置字体为数码管样式，后备字体为 Arial 和 sans-serif */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0; /* 起始透明度为 0 */
+        }
+        to {
+            opacity: 1; /* 结束透明度为 1 */
+        }
+    }
+</style>
+
 </style>
     
 <body>
