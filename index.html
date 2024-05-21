@@ -1,124 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网</title>
+    <!-- 这里链接到你的 CSS 文件 -->
     <link rel="stylesheet" href="assets/css/background.css">
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            margin: 0; /* 移除默认的页面边距 */
+            padding: 0; /* 移除默认的页面内边距 */
+            font-family: Arial, sans-serif; /* 设置页面字体为 Arial，如果不可用则使用 sans-serif */
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); 
+            /* 设置背景图片 */
+            background-size: cover; /* 背景图片覆盖整个容器 */
+            background-position: center; /* 背景图片居中对齐 */
+            display: flex; /* 使用 Flexbox 布局 */
+            flex-direction: column; /* 垂直排列子元素 */
+            align-items: center; /* 子元素水平居中 */
+            justify-content: center; /* 子元素垂直居中 */
+            height: 100vh; /* 高度设为视口高度 */
         }
 
-        .overlay {
-            color: white;
-            font-size: 5em;
-            text-align: center;
-            background: rgba(0, 0, 0, 0);
-            padding: 50px;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            cursor: pointer;
+        .overlay { /*展示文字‘天地渊渊 谁曾可探’*/
+            color: white; /* 设置文字颜色为白色 */
+            font-size: 5em; /* 设置字体大小为 5em */
+            text-align: center; /* 设置文本居中对齐 */
+            background: rgba(0, 0, 0, 0); /* 设置背景颜色为透明 */
+            padding: 50px; /* 设置内边距为 50 像素 */
+            border-radius: 10px; /* 设置边框圆角为 10 像素 */
+            opacity: 0; /* 初始透明度为 0，使元素不可见 */
+            transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+            cursor: pointer; /* 添加指针样式 */
         }
 
-        .bottom-link {
-            margin-top: 300px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 4s ease-in-out;
+        .bottom-link { /*‘前往探索’按钮*/
+            margin-top: 300px; /* 设置上外边距为 300 像素 */
+            text-align: center; /* 设置文本居中对齐 */
+            opacity: 0; /* 初始透明度为 0，使元素不可见 */
+            font-size: 2em; /* 设置字体大小为 5em */
+            transition: opacity 4s ease-in-out; /* 添加透明度过渡效果，持续 4 秒，使用缓入缓出动画 */
         }
 
-        .bottom-link a, .overlay {
-            transition: transform 0.3s ease-in-out;
+        .overlay， .bottom-link a { /* 鼠标滑动动画样式 */
+            transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
         }
 
-        .bottom-link a:hover, .overlay:hover {
-            transform: scale(1.1);
+        .bottom-link a:hover, .overlay:hover { /* 鼠标滑动效果 */
+            transform: scale(1.1); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
         }
 
         .bottom-link a {
-            color: white;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 5px;
+            color: white; /* 设置链接文字‘前往探索’颜色为白色 */
+            text-decoration: none; /* 去掉链接下划线 */
+            background: rgba(0, 0, 0, 0.7); /* 设置背景颜色为半透明黑色 */
+            padding: 10px 20px; /* 设置内边距为 10 像素（上下）和 20 像素（左右） */
+            border-radius: 5px; /* 设置边框圆角为 5 像素 */
         }
 
+        /* 导入数码管字体 */
         @font-face {
             font-family: 'DS-DIGIB-2';
             src: url('assets/DS-Digital/DS-DIGIB-2.ttf') format('truetype');
         }
 
+        /* 添加时钟样式 */
         #clock {
-            font-size: 3em;
-            color: white;
-            margin-top: 100px;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-            text-align: center;
-            font-family: 'DS-DIGIB-2', Arial, sans-serif;
+            font-size: 3em; /* 字体大小 */
+            color: white; /* 文字颜色 */
+            margin-top: 100px; /* 顶部外边距 */
+            opacity: 0; /* 初始透明度为 0 */
+            animation: fadeIn 2s ease-in-out forwards; /* 使用动画淡入效果，持续 2 秒，缓入缓出，结束后保持最终状态 */
+            text-align: center; /* 文字居中对齐 */
+            font-family: 'DS-DIGIB-2', Arial, sans-serif; /* 设置字体为数码管样式，后备字体为 Arial 和 sans-serif */
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0; /* 起始透明度为 0 */
+            }
+            to {
+                opacity: 1; /* 结束透明度为 1 */
+            }
         }
 
+        /* 定义鼠标滑动动画样式 */
         .hover-effect {
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
         }
 
         .hover-effect:hover {
-            transform: scale(1.2);
+            transform: scale(1.1); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
         }
     </style>
 </head>
+
 <body>
+    <!-- 这里是你的网页内容 -->
     <header>
-        <div class="overlay hover-effect" id="overlay">天地渊渊 谁曾可探</div>
+        <div class="overlay hover-effect" id="overlay">
+            天地渊渊 谁曾可探
+        </div>
     </header>
 
     <div class="bottom-link hover-effect" id="bottom-link">
-        <a href="main.html">前往探索</a>
+        <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
 
-    <div id="clock" class="hover-effect"></div>
+    <!-- 添加时钟容器 -->
+    <div id="clock" class="hover-effect"></div><!-- 给时钟元素添加 hover 效果的类 -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById('overlay');
             var bottomLink = document.getElementById('bottom-link');
-            setTimeout(function() {
+            setTimeout(function(){
                 overlay.style.opacity = '1';
                 bottomLink.style.opacity = '1';
             }, 1000);
 
+            // 时钟显示功能
             function updateClock() {
                 var now = new Date();
                 var hours = now.getHours();
                 var minutes = now.getMinutes();
                 var seconds = now.getSeconds();
+
+                // 添加前导零以确保两位数
                 hours = hours < 10 ? '0' + hours : hours;
                 minutes = minutes < 10 ? '0' + minutes : minutes;
                 seconds = seconds < 10 ? '0' + seconds : seconds;
+
                 var clockDiv = document.getElementById('clock');
                 clockDiv.textContent = hours + ':' + minutes + ':' + seconds;
             }
 
-            setInterval(updateClock, 1000);
-            updateClock();
+            setInterval(updateClock, 1000); // 每秒钟更新一次时钟
+            updateClock(); // 立即更新时钟
         });
     </script>
 </body>
 </html>
+
