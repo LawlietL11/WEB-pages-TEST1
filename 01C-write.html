@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灰狐网</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
     <style>
         /* 添加自定义样式 */
         html, body {
@@ -163,10 +164,15 @@
             </div>
         </div>
         <div class="main">
-            空
+            <!-- 这里将显示文章内容 -->
+            <div id="article-content"></div>
+            <!-- 分页导航 -->
+            <div id="pagination"></div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 获取资源链接和下拉菜单内容
@@ -194,12 +200,82 @@
                     dropdownContent.style.maxHeight = '0'; // 设置高度为0
                 }
             });
-        });
 
-        window.onload = function() {
-            document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
-            document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
-        }
+            // 处理页脚动画效果
+            window.onload = function() {
+                document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
+                document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
+            }
+
+            // 示例Markdown内容，可以替换为从服务器获取的数据
+            var markdownContent = `
+# 一级标题
+## 二级标题
+这是引言部分。
+
+### 正文
+这是正文部分。
+
+\`\`\`javascript
+// 这是代码块示例
+function greet() {
+    console.log("Hello, world!");
+}
+\`\`\`
+`;
+
+            // 分页功能
+            var articlesPerPage = 1; // 每页显示的文章数量
+            var currentPage = 1; // 当前页码
+            var totalArticles = 3; // 总文章数量，假设有3篇文章
+
+            function renderPagination() {
+                var paginationDiv = document.getElementById('pagination');
+                paginationDiv.innerHTML = '';
+                for (var i = 1; i <= Math.ceil(totalArticles / articlesPerPage); i++) {
+                    var pageLink = document.createElement('a');
+                    pageLink.href = '#';
+                    pageLink.innerText = i;
+                    pageLink.className = 'page-link';
+                    pageLink.dataset.page = i;
+                    if (i === currentPage) {
+                        pageLink.style.fontWeight = 'bold';
+                    }
+                    paginationDiv.appendChild(pageLink);
+                }
+
+                // 添加点击事件
+                document.querySelectorAll('.page-link').forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        currentPage = parseInt(event.target.dataset.page);
+                        renderArticle();
+                    });
+                });
+            }
+
+            function renderArticle() {
+                var articleDiv = document.getElementById('article-content');
+                articleDiv.innerHTML = '';
+
+                // 获取当前页的文章内容，实际应用中应从服务器获取
+                var articleMarkdown = markdownContent;
+                var articleHtml = marked.parse(articleMarkdown);
+
+                // 渲染文章内容
+                articleDiv.innerHTML = articleHtml;
+
+                // 代码高亮
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+
+                // 渲染分页
+                renderPagination();
+            }
+
+            renderArticle(); // 初始化文章显示
+        });
     </script>
 </body>
 </html>
