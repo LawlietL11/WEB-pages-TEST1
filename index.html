@@ -67,7 +67,7 @@
         opacity: 0; /* 初始透明度为 0 */
         animation: fadeIn 2s ease-in-out forwards; /* 使用动画淡入效果，持续 2 秒，缓入缓出，结束后保持最终状态 */
         text-align: center; /* 文字居中对齐 */
-        font-family: 'Digital-7', Arial, sans-serif; /* 设置字体为数码管样式，后备字体为 Arial 和 sans-serif */
+        font-family: 'Digital', Arial, sans-serif; /* 设置字体为数码管样式，后备字体为 Arial 和 sans-serif */
     }
 
     @keyframes fadeIn {
@@ -78,9 +78,23 @@
             opacity: 1; /* 结束透明度为 1 */
         }
     }
+
+	/* 定义鼠标滑动动画样式 */
+        .hover-effect {
+            transition: transform 0.3s ease-in-out; /* 设置变换动画，持续时间为 0.3 秒，缓入缓出效果 */
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.2); /* 鼠标滑动到元素上时，元素放大 1.1 倍 */
+        }
+    <!-- 定义时钟元素 -->
+    <div id="clock" class="hover-effect">12:34:56</div> <!-- 给时钟元素添加 hover 效果的类 -->
+    <!-- 可以通过 JavaScript 动态更新时钟内容 -->
+
+	
 </style>
 
-</style>
+
     
 <body>
 
