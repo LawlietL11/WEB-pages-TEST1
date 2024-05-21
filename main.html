@@ -145,38 +145,40 @@
             <div class="external-link">
                 <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰虎网</a> <!-- 修改链接文本为 "访问灰虎网" -->
             </div>
-        </div>
+        
+    
+
+
+    
+         <script>
+                // 渐变动画
+                window.onload = function() {
+                    document.getElementById('.header')。style.opacity = 1;
+                    document.getElementById('main-text')。style.opacity = 1;
+                    document.querySelector('.sidebar')。style.opacity = 1;
+                }
+                
+                // 公告栏滑动功能
+                let currentSlide = 0;
+                const slides = document.querySelectorAll('.announcement-content img');
+                const totalSlides = slides.length;
+        
+                document.querySelector('.next').addEventListener('click', () => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    slides[currentSlide].classList.add('active');
+                });
+        
+                document.querySelector('.prev').addEventListener('click', () => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    slides[currentSlide].classList.add('active');
+                });
+        
+                slides[currentSlide].classList.add('active');
+            </script>
     </div>
 
-
-    
- </script>
-        // 渐变动画
-        window.onload = function() {
-            document.getElementById('.header')。style.opacity = 1;
-            document.getElementById('main-text')。style.opacity = 1;
-            document.querySelector('.sidebar')。style.opacity = 1;
-        }
         
-        // 公告栏滑动功能
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.announcement-content img');
-        const totalSlides = slides.length;
-
-        document.querySelector('.next').addEventListener('click', () => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        });
-
-        document.querySelector('.prev').addEventListener('click', () => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        });
-
-        slides[currentSlide].classList.add('active');
-    </script>
-    
 </body>
 </html>
