@@ -1,0 +1,50 @@
+  #clock {
+    font-size: 2em; /* 设置时钟字体大小为 2em */
+    color: white; /* 设置时钟文字颜色为白色 */
+    margin-top: 20px; /* 设置时钟顶部外边距为 20 像素 */
+    opacity: 0; /* 初始不可见 */
+    animation: fadeIn 4s ease-in-out forwards; /* 使用动画淡入，持续 4 秒，缓入缓出效果 */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* 从不可见开始 */
+    }
+    to {
+        opacity: 1; /* 变为完全可见 */
+    }
+}
+
+
+<!-- 添加时钟容器 -->
+    <div id="clock"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById('overlay');
+            var bottomLink = document.getElementById('bottom-link');
+            setTimeout(function(){
+                overlay.style.opacity = '1';
+                bottomLink.style.opacity = '1';
+            }, 1000);
+
+            // 时钟显示功能
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+
+                // 添加前导零以确保两位数
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                var clockDiv = document.getElementById('clock');
+                clockDiv.textContent = hours + ':' + minutes + ':' + seconds;
+            }
+
+            setInterval(updateClock, 1000); // 每秒钟更新一次时钟
+            updateClock(); // 立即更新时钟
+        });
+    </script>
