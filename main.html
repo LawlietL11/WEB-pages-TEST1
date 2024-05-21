@@ -7,6 +7,95 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/x-icon">
 </head>
+
+ <style>
+
+             body {
+            margin: 0; /* 移除默认的页面边距 */
+            padding: 0; /* 移除默认的页面内边距 */
+            font-family: Arial, sans-serif; /* 设置页面字体为 Arial，如果不可用则使用 sans-serif */
+            background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); 
+            /* 设置背景图片 */
+            background-size: cover; /* 背景图片覆盖整个容器 */
+            background-position: center; /* 背景图片居中对齐 */
+            display: flex; /* 使用 Flexbox 布局 */
+            flex-direction: column; /* 垂直排列子元素 */
+            align-items: center; /* 子元素水平居中 */
+            justify-content: center; /* 子元素垂直居中 */
+            height: 100vh; /* 高度设为视口高度 */
+        }
+
+         .sidebar {
+        background-color: #333; /* 设置侧边栏背景色 */
+        color: #fff; /* 设置侧边栏文字颜色 */
+        width: 200px; /* 设置侧边栏宽度 */
+        height: 100%; /* 使侧边栏高度与页面高度相同 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto; /* 添加滚动条 */
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+        
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 200px; /* 设置主内容区域与侧边栏的间距 */
+            padding: 20px;
+        }
+        
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .announcement {
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .announcement-content {
+            display: flex;
+            overflow-x: auto;
+        }
+        
+        .announcement-content img {
+            width: 100%;
+            display: none;
+        }
+        
+        .announcement-content img.active {
+            display: block;
+        }
+        
+        .announcement-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .announcement-nav span {
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+ </style>
+    
 <body>
     <div class="background"></div>
     <div class="sidebar">
@@ -55,9 +144,9 @@
 
         // 渐变动画
         window.onload = function() {
-            document.getElementById('clock').style.opacity = 1;
-            document.getElementById('main-text').style.opacity = 1;
-            document.querySelector('.bottom').style.opacity = 1;
+            document.getElementById('clock')。style.opacity = 1;
+            document.getElementById('main-text')。style.opacity = 1;
+            document.querySelector('.bottom')。style.opacity = 1;
         }
         
         // 公告栏滑动功能
