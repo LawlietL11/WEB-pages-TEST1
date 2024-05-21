@@ -12,52 +12,53 @@
 <style>
            
    body {
-			margin: 0; /* 移除默认的页面边距 */
-			padding: 0; /* 移除默认的页面内边距 */
-			font-family: Arial, sans-serif; /* 设置页面字体为 Arial，如果不可用则使用 sans-serif */
-			background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); /* 设置背景图片 */
-			background-size: cover; /* 背景图片覆盖整个容器 */
-			background-position: center; /* 背景图片居中对齐 */
-			display: flex; /* 使用 Flexbox 布局 */
-			flex-direction: column; /* 垂直排列子元素 */
-			align-items: center; /* 子元素水平居中 */
-			justify-content: center; /* 子元素垂直居中 */
-			height: 100vh; /* 高度设为视口高度 */
+			margin: 0;				/* 移除默认的页面边距 */
+			padding: 0; 				/* 移除默认的页面内边距 */
+			font-family: Arial, sans-serif; 	/* 设置页面字体为 Arial，如果不可用则使用 sans-serif */
+			background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg'); 
+	   							/* 设置背景图片 */
+			background-size: cover; 		/* 背景图片覆盖整个容器 */
+			background-position: center; 		/* 背景图片居中对齐 */
+			display: flex; 				/* 使用 Flexbox 布局 */
+			flex-direction: column; 		/* 垂直排列子元素 */
+			align-items: center; 			/* 子元素水平居中 */
+			justify-content: center; 		/* 子元素垂直居中 */
+			height: 100vh; 				/* 高度设为视口高度 */
 		}
 		
-    .overlay { 								/*展示文字‘天地渊渊 谁曾可探’*/
+    .overlay { 							/*展示文字‘天地渊渊 谁曾可探’*/
             color: white; 					/* 设置文字颜色为白色 */
-            font-size: 4em;				 	/* 设置字体大小为 5em */
-			text-align: center; 			/* 设置文本居中对齐 */
-            background: rgba(0, 0, 0, 0.5); /* 设置背景颜色为半透明黑色 */
+            font-size: 5em;				 	/* 设置字体大小为 5em */
+	    text-align: center; 				/* 设置文本居中对齐 */
+            background: rgba(0, 0, 0, 0.5); 			/* 设置背景颜色为半透明黑色 */
             padding: 50px;					/* 设置内边距为 20 像素 */
-            border-radius: 25px; 			/* 设置边框圆角为 10 像素 */
+            border-radius: 100px; 				/* 设置边框圆角为 10 像素 */
             opacity: 0; 					/* 初始透明度为 0，使元素不可见 */
-            transition: opacity 1s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+            transition: opacity 1s ease-in-out; 		/* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
         }
     
-    .bottom-link {						 	/*‘前往探索’按钮*/
+    .bottom-link {					/*‘前往探索’按钮*/
             margin-top: 300px; 				/* 设置上外边距为 300 像素   调整位置高低*/
             text-align: center; 			/* 设置文本居中对齐  修改这里调整左右 */
-            opacity: 0; 					/* 初始透明度为 0，使元素不可见 */
-            transition: opacity 4s ease-in-out; /* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
+            opacity: 0; 				/* 初始透明度为 0，使元素不可见 */
+            transition: opacity 4s ease-in-out; 	/* 添加透明度过渡效果，持续 1 秒，使用缓入缓出动画 */
         }
     
     .bottom-link a {
-            color: blue;						/* 设置链接文字‘前往探索’颜色为白色 */
+            color: blue;					/* 设置链接文字‘前往探索’颜色为白色 */
             text-decoration: none; 				/* 去掉链接下划线 */
-            background: rgba(0, 0, 0, 0.7); 	/* 设置背景颜色为半透明黑色 */
+            background: rgba(0, 0, 0, 0.7); 			/* 设置背景颜色为半透明黑色 */
             padding: 10px 20px; 				/* 设置内边距为 10 像素（上下）和 20 像素（左右） */
             border-radius: 5px; 				/* 设置边框圆角为 5 像素 */
         }
 		
 	 /* 添加时钟样式 */
         #clock {
-            font-size: 2em;						/*字体大小*/
+            font-size: 3em;						/*字体大小*/
             color: blue;						/*颜色*/
-            margin-top: 20px;					/*高低*/
+            margin-top: 40px;						/*高低*/
             opacity: 0; 						/* 初始不可见 */
-            animation: fadeIn 2s ease-in-out forwards; /* 使用动画淡入 */
+            animation: fadeIn 2s ease-in-out forwards; 			/* 使用动画淡入 */
         }
 
         @keyframes fadeIn {
@@ -78,7 +79,7 @@
     <div class="overlay" id="overlay">
         天地渊渊 谁曾可探
     </div>
-	    
+<!-- 	    
         <h1>欢迎来到我的网页</h1>
         <nav>
             <ul>
@@ -91,15 +92,15 @@
 
     <main>
         <section>
-           /* <h2>内容部分1</h2> */
-           /* <p>这里是内容部分的文本。</p> */
+            <h2>内容部分1</h2> 
+            <p>这里是内容部分的文本。</p> 
         </section>
 
         <section>
-           /* <h2>内容部分2</h2> */
-           /* <p>这是另一部分内容。</p> */
+            <h2>内容部分2</h2> 
+            <p>这是另一部分内容。</p> 
         </section>
-    </main>
+    </main> -->
 
 
     <div class="bottom-link" id="bottom-link">
