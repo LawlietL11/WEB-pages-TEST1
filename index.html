@@ -16,5 +16,38 @@
     <div class="bottom-link" id="bottom-link">
         <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
+
+    <!-- 添加时钟容器 -->
+    <div id="clock"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById('overlay');
+            var bottomLink = document.getElementById('bottom-link');
+            setTimeout(function(){
+                overlay.style.opacity = '1';
+                bottomLink.style.opacity = '1';
+            }, 1000);
+
+            // 时钟显示功能
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+
+                // 添加前导零以确保两位数
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                var clockDiv = document.getElementById('clock');
+                clockDiv.textContent = hours + ':' + minutes + ':' + seconds;
+            }
+
+            setInterval(updateClock, 1000); // 每秒钟更新一次时钟
+            updateClock(); // 立即更新时钟
+        });
+    </script>
 </body>
 </html>
