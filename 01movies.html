@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书籍</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">主页</a></li>
+            <li>公告</li>
+            <li class="dropdown">
+                <a href="#">资源</a>
+                <div class="dropdown-content">
+                    <a href="web-guide.html">网页导航</a>
+                    <a href="communication engineering.html">通信工程</a>
+                    <a href="Digital Electronics.html">数码技术</a>
+                    <a href="books.html">书籍</a>
+                    <a href="movies.html">影视</a>
+                    <a href="history.html">历史</a>
+                    <a href="AI.html">AI</a>
+                    <a href="C-write.html">个人随笔</a>
+                </div>
+            </li>
+            <li><a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat">联系我？</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">灰狐网</div>
+        <div class="announcement">
+            <div class="announcement-content">
+                <img src="assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg" alt="Announcement 1">
+                <img src="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" alt="Announcement 2">
+            </div>
+            <div class="announcement-nav">
+                <span class="prev">&lt;</span>
+                <span class="next">&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 公告栏滑动功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.announcement-content img');
+        const totalSlides = slides.length;
+
+        document.querySelector('.next').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        });
+
+        slides[currentSlide].classList.add('active');
+    </script>
+</body>
+</html>
