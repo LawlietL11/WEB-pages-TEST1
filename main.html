@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 添加自定义样式 */
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* 禁止页面滚动 */
+        }
+
+        body {
             background-image: url('assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpeg');
             background-size: cover;
             background-position: center;
@@ -18,7 +24,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
         }
 
         .header {
@@ -49,28 +54,18 @@
             font-size: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             transition: opacity 1s ease;
             opacity: 0;
-            height: auto; /* 添加这行，确保侧边栏高度能自适应内容 */
-            text-align: center; /* 文本居中 */
-        }
-
-        .main {
-            flex: 1;
-            padding: 15px;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: black;
-            transition: opacity 1s ease;
-            opacity: 0;
+            height: 100%;
+            text-align: center;
         }
         
         .navbar a, .dropdown span {
-            display: block; /* 使元素以块状形式显示 */
-            margin: 0; /* 移除外边距 */
-            padding: 10px; /* 统一内边距 */            
-            color: white;            
+            display: block;
+            margin: 0;
+            padding: 10px;
+            color: white;
             text-decoration: none;
             font-family: Arial, sans-serif;
         }
@@ -103,49 +98,21 @@
         }
         
         .dropdown-content {
-            /* position: absolute; 移除这行 */
-            background-color: rgba(95,158,160,0.3);
+            position: absolute;
+            background-color: rgba(95, 158, 160, 0.3); /* 更正RGBA格式 */
             min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s ease, max-height 0.5s ease;
             max-height: 0;
             overflow: hidden;
-            position: relative; /* 添加这行 */
         }
         
         .dropdown-content.active {
             display: block;
             opacity: 1;
             max-height: 500px;
-            display: flex; /* 使用Flexbox布局 */
-            justify-content: center; /* 水平居中 */
-        }
-
-        .announcement-content img {
-            width: 300px;
-            height: auto;
-            margin: auto; /* 上下左右外边距自动，进一步确保居中 */
-        }
-
-        .announcement-content img.active {
-            display: block;
-        }
-
-        .announcement-content img {
-            display: none;
-        }
-
-        .announcement-nav {
-            display: flex;
-            justify-content: space-between;
-            width: 50px;
-            margin: 0 auto;
-        }
-
-        .announcement-nav span {
-            cursor: pointer;
         }
     </style>
 </head>
@@ -170,11 +137,12 @@
                         <a href="01C-write.html">个人随笔</a>
                     </div>
                 </div>
-                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们？</a>
+                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
             </div>
         </div>
-        
-        <div class="main">
+    </div>
+
+<div class="main">
             <div class="announcement">
                 <div class="announcement-content">
                     <img src="assets/images/76473450_p0_master1200.webp" alt="Announcement 1">
@@ -203,6 +171,7 @@
         </div>
     </div>
 
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 获取资源链接和下拉菜单内容
@@ -214,38 +183,10 @@
                 // 切换下拉菜单的激活状态
                 dropdownContent.classList.toggle('active');
             });
-
-            // 点击页面其他部分时隐藏资源子模块
-            document.addEventListener('click', function(event) {
-                var target = event.target;
-                if (!target.closest('.dropdown')) {
-                    dropdownContent.classList.remove('active');
-                }
-            });
-
-            // 公告栏滑动功能
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.announcement-content img');
-            const totalSlides = slides.length;
-        
-            document.querySelector('.next').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            });
-        
-            document.querySelector('.prev').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            });
-        
-            slides[currentSlide].classList.add('active');
         });
         
         window.onload = function() {
             document.querySelector('.header').style.opacity = 1;
-            document.querySelector('.main').style.opacity = 1;
             document.querySelector('.sidebar').style.opacity = 1;
         }
     </script>
