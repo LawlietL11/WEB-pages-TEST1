@@ -23,7 +23,7 @@
             overflow: hidden; /* 禁止页面滚动 */
         }
 
-        .overlay { /*展示文字‘天地渊渊 谁曾可探’*/
+        .overlay {
             color: white; /* 设置文字颜色为白色 */
             font-size: 5em; /* 设置字体大小为 5em */
             text-align: center; /* 设置文本居中对齐 */
@@ -35,7 +35,12 @@
             cursor: pointer; /* 添加指针样式 */
         }
 
-        .bottom-link { /*‘前往探索’按钮*/
+        .overlay a {
+            color: white; /* 设置链接文字颜色为白色 */
+            text-decoration: none; /* 移除链接的下划线 */
+        }
+
+        .bottom-link {
             margin-top: 300px; /* 设置上外边距为 300 像素 */
             text-align: center; /* 设置文本居中对齐 */
             opacity: 0; /* 初始透明度为 0，使元素不可见 */
@@ -43,7 +48,7 @@
         }
 
         .bottom-link a {
-            color: white; /* 设置链接文字‘前往探索’颜色为白色 */
+            color: white; /* 设置链接文字颜色为白色 */
             text-decoration: none; /* 去掉链接下划线 */
             background: rgba(0, 0, 0, 0.7); /* 设置背景颜色为半透明黑色 */
             padding: 10px 20px; /* 设置内边距为 10 像素（上下）和 20 像素（左右） */
@@ -88,12 +93,12 @@
     <!-- 这里是你的网页内容 -->
     <header>
         <div class="overlay hover-effect" id="overlay">
-            <a href="main.html">天地渊渊 谁曾可探</a>
+            <a href="assets/text/论洛夫克拉夫特种族主义的哲学起源.pdf">天地渊渊 谁曾可探</a>
         </div>
     </header>
 
     <div class="bottom-link hover-effect" id="bottom-link">
-        <a href="assets/text/论洛夫克拉夫特种族主义的哲学起源.pdf">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
+        <a href="main.html">前往探索</a> <!-- 修改链接文本为 "前往探索" -->
     </div>
 
     <!-- 添加时钟容器 -->
