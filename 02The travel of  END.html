@@ -175,7 +175,7 @@
     <!-- 索引 -->
     <h2>索引</h2>
     <ul>
-        <li><a href="assets/text/02The travel of END.html">终末之旅</a></li>
+        <li><a href="#article1">文章1</a></li>
         <li><a href="#article2">文章2</a></li>
         <!-- 添加更多文章链接 -->
     </ul>
@@ -191,10 +191,10 @@
     <!-- 文章内容 -->
     <article id="article1">
         <h1>文章1</h1>
-        在大海里航行永远到不了星辰之间
+        在大海里航行永远到不了星辰之间 
+        
+        
         在星辰间航行永远到不了星之门
-
-        <!-- 文章内容 -->
     </article>
 
     <article id="article2">
@@ -208,6 +208,7 @@
         <button id="nextPage">下一页</button>
     </div>
 </div>
+
 
 
 
@@ -253,8 +254,8 @@
             document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
         }
 
-        
- // 翻页功能
+
+  // 翻页功能
     document.addEventListener('DOMContentLoaded', function() {
         const articles = document.querySelectorAll('.main article'); // 获取所有文章
         let currentPageIndex = 0; // 当前页索引，默认为第一页
@@ -288,6 +289,7 @@
         });
     });
 
+        
 
 
 
