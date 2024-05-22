@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title>
+    <title>灰狐网-AI</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* 添加自定义样式 */
@@ -13,7 +13,7 @@
             font-family: Arial, sans-serif;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* 禁止页面滚动 */
+            overflow: auto; /* hidden禁止页面滚动 */
         }
 
         /* 设置body元素的背景图像和布局样式 */
@@ -137,38 +137,11 @@
             overflow-y: auto; /* 允许垂直滚动 */
         }
 
-        /* 设置公告内容容器的样式，使其居中对齐 */
-        .announcement-content {
-            display: flex;
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-            height: 500px; /* 根据需要设置容器高度 */
-        }
 
-        /* 设置公告内容图片的样式 */
-        .announcement-content img {
-            width: 300px; /* 确保图片不超过容器宽度 */
-            height: auto;
-            display: none; /* 默认隐藏所有图片 */
-        }
 
-        /* 设置激活的公告图片的样式 */
-        .announcement-content img.active {
-            display: block; /* 显示当前活动的图片 */
-        }
 
-        /* 设置公告导航的样式 */
-        .announcement-nav {
-            display: flex;
-            justify-content: space-between;
-            width: 50px;
-            margin: 0 auto;
-        }
 
-        /* 设置公告导航按钮的样式 */
-        .announcement-nav span {
-            cursor: pointer;
-        }
+
     </style>
 </head>
 <body>
@@ -195,146 +168,14 @@
                 <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
             </div>
         </div>
-        <div class="main">
-            <div class="announcement">
-                <div class="announcement-content">
-                    <img src="assets/images/76473450_p0_master1200.webp" alt="Announcement 1">
-                    <img src="assets/images/8002bb41-feff-45fb-9e37-6b70657c4e38.jpg" alt="Announcement 2">
-                </div>
-                <div class="announcement-nav">
-                    <span class="prev">&lt;</span>
-                    <span class="next">&gt;</span>
-                </div>
-            </div>
-            
-            <div class="edit-blog">
-                <h3>在线编辑博客</h3>
-                <textarea placeholder="在这里写下你的博客..."></textarea>
-                <button>提交</button>
-            </div>
-
-            <div class="external-link">
-                <a href="http://www.hhkaoyan.com/index/index.html" target="_blank">访问灰狐网</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取资源链接和下拉菜单内容
-            var resourceLink = document.querySelector('.dropdown span');
-            var dropdownContent = document.querySelector('.dropdown-content');
-        
-            // 监听资源链接的点击事件
-            resourceLink.addEventListener('click', function(event) {
-                event.stopPropagation(); // 阻止事件冒泡
-                dropdownContent.classList.toggle('active'); // 切换下拉菜单的激活状态
-                if (dropdownContent.classList.contains('active')) {
-                    dropdownContent.style.opacity = 1; // 设置透明度为1
-                    dropdownContent.style.maxHeight = '500px'; // 设置最大高度
-                } else {
-                    dropdownContent.style.opacity = 0; // 设置透明度为0
-                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
-                }
-            });
-
-            // 点击页面其他地方时隐藏资源子模块并淡出
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.dropdown')) { // 如果点击的不是资源链接或资源子模块
-                    dropdownContent.classList.remove('active');
-                    dropdownContent.style.opacity = 0; // 设置透明度为0
-                    dropdownContent.style.maxHeight = '0'; // 设置高度为0
-                }
-            });
-
-            // 公告栏滑动功能
-            let currentSlide = 0; // 当前幻灯片索引
-            const slides = document.querySelectorAll('.announcement-content img'); // 获取所有幻灯片
-            const totalSlides = slides.length; // 获取幻灯片总数
-
-            document.querySelector('.next').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active'); // 隐藏当前幻灯片
-                currentSlide = (currentSlide + 1) % totalSlides; // 计算下一个幻灯片索引
-                slides[currentSlide].classList.add('active'); // 显示下一个幻灯片
-            });
-
-            document.querySelector('.prev').addEventListener('click', () => {
-                slides[currentSlide].classList.remove('active'); // 隐藏当前幻灯片
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // 计算上一个幻灯片索引
-                slides[currentSlide].classList.add('active'); // 显示上一个幻灯片
-            });
-
-            slides[currentSlide].classList.add('active'); // 显示当前幻灯片
-        });
-
-        window.onload = function() {
-            document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
-            document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
-        }
-    </script>
-</body>
-</html>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灰狐网</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-
-</head>
-<body>
-    <div class="header">
-        <h1>灰狐网</h1>
-    </div>
-    <div class="container">
-        <div class="sidebar">
-            <div class="navbar">
-                <a href="index.html">主页</a>
-                <div class="dropdown">
-                    <span>资源</span>
-                    <div class="dropdown-content">
-                        <a href="01web-guide.html">网页导航</a>
-                        <a href="01communication engineering.html">通信工程</a>
-                        <a href="01digital Electronics.html">数码技术</a>
-                        <a href="01books.html">书籍</a>
-                        <a href="01movies.html">影视</a>
-                        <a href="01history.html">历史</a>
-                        <a href="01AI.html">AI</a>
-                        <a href="01C-write.html">个人随笔</a>
-                    </div>
-                </div>
-                <a href="https://ce2.greensea.org/#/@0.0000000,0.0000000,2z,lowlat" target="_blank">联系我们</a>
-            </div>
-        </div>
 <div class="main">
     <!-- 索引 -->
     <h2>索引</h2>
     <ul>
-        <li><a href="#article1">文章1</a></li>
+        <li><a href="assets/text/02The travel of END.html">终末之旅</a></li>
         <li><a href="#article2">文章2</a></li>
         <!-- 添加更多文章链接 -->
     </ul>
@@ -350,10 +191,10 @@
     <!-- 文章内容 -->
     <article id="article1">
         <h1>文章1</h1>
-        终末之旅
-天地渊渊，谁曾可探？
-——《传道书》
+        在大海里航行永远到不了星辰之间
+        在星辰间航行永远到不了星之门
 
+        <!-- 文章内容 -->
     </article>
 
     <article id="article2">
@@ -367,14 +208,20 @@
         <button id="nextPage">下一页</button>
     </div>
 </div>
+
+
+
     </div>
 
     <script>
+
+
         document.addEventListener('DOMContentLoaded', function() {
             // 获取资源链接和下拉菜单内容
             var resourceLink = document.querySelector('.dropdown span');
             var dropdownContent = document.querySelector('.dropdown-content');
         
+
             // 监听资源链接的点击事件
             resourceLink.addEventListener('click', function(event) {
                 event.stopPropagation(); // 阻止事件冒泡
@@ -388,6 +235,8 @@
                 }
             });
 
+
+
             // 点击页面其他地方时隐藏资源子模块并淡出
             document.addEventListener('click', function(event) {
                 if (!event.target.closest('.dropdown')) { // 如果点击的不是资源链接或资源子模块
@@ -398,12 +247,14 @@
             });
         });
 
+
         window.onload = function() {
             document.querySelector('.header').style.opacity = 1; // 设置header透明度为1
             document.querySelector('.sidebar').style.opacity = 1; // 设置sidebar透明度为1
         }
 
-       // 翻页功能
+        
+ // 翻页功能
     document.addEventListener('DOMContentLoaded', function() {
         const articles = document.querySelectorAll('.main article'); // 获取所有文章
         let currentPageIndex = 0; // 当前页索引，默认为第一页
@@ -436,11 +287,11 @@
             }
         });
     });
+
+
+
+
+
     </script>
 </body>
 </html>
-
-
-
-
-
